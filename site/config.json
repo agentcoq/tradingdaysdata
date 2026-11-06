@@ -1,10 +1,17 @@
 {
   "site_name": "Trading Days Data",
   "domain": "tradingdaysdata.com",
+  "domain_live": false,
   "paper_title": "The Cross-Section of Trading Days",
   "authors": [
-    {"name": "Guillaume Coqueret", "affiliation": "EMLYON Business School"},
-    {"name": "Alejandro Lopez-Lira", "affiliation": "University of Florida"}
+    {
+      "name": "Guillaume Coqueret",
+      "affiliation": "EMLYON Business School"
+    },
+    {
+      "name": "Alejandro Lopez-Lira",
+      "affiliation": "University of Florida"
+    }
   ],
   "paper_url": null,
   "repo_url": null,
@@ -16,6 +23,9 @@
     "download_base": null
   },
   "news": [
-    {"date": "forthcoming", "text": "Version 1.0.0: the release that matches the paper, one row per NYSE session from 1960-01-04 to 2025-12-31."}
+    {
+      "date": "forthcoming",
+      "text": "Version 1.0.0: the release that matches the paper, one row per NYSE session from 1960-01-04 to 2025-12-31."
+    }
   ]
 }

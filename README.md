@@ -3,8 +3,9 @@
 Website and release files for the dataset of *The Cross-Section of Trading Days* (Guillaume Coqueret and
 Alejandro Lopez-Lira): characteristics of every NYSE trading session from 1960, one row per session.
 
-The site is served by GitHub Pages from `docs/` at <https://tradingdaysdata.com>. Every page is generated; do not
-edit `docs/` by hand.
+The site is served by GitHub Pages from `docs/`, at <https://agentcoq.github.io/tradingdaysdata/> until the domain
+<https://tradingdaysdata.com> points to GitHub Pages; then set `domain_live` to `true` in `site/config.json` and rebuild,
+which writes `docs/CNAME`. Every page is generated; do not edit `docs/` by hand.
 
 ## Layout
 

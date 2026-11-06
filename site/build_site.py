@@ -589,8 +589,11 @@ def main():
     for fname, (title, body, scripts) in pages.items():
         (OUT / fname).write_text(page(cfg, fname, title, body, scripts, wide=fname == "codebook.html"))
     (OUT / ".nojekyll").write_text("")
-    if cfg.get("domain"):
-        (OUT / "CNAME").write_text(cfg["domain"] + "\n")
+    cname = OUT / "CNAME"            # written only once the domain's DNS points to GitHub Pages
+    if cfg.get("domain") and cfg.get("domain_live"):
+        cname.write_text(cfg["domain"] + "\n")
+    elif cname.exists():
+        cname.unlink()
     print(f"site written to {OUT}: {', '.join(pages)}; manifest {'found' if man else 'absent'}")
 
 
