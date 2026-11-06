@@ -1,0 +1,17 @@
+{
+  "title": "Trading Days Data",
+  "upload_type": "dataset",
+  "description": "<p>Characteristics of every NYSE trading session from 1960 to 2025, one row per session: the calendar, scheduled macroeconomic and monetary-policy announcements, political, sports and natural events, weather and astronomy, attention, and market conditions. This is the dataset of <em>The Cross-Section of Trading Days</em> (Guillaume Coqueret and Alejandro Lopez-Lira).</p><p>This deposit holds the open portion of the dataset: the daily panel (16,610 sessions, 1960-01-04 to 2025-12-31, 356 open columns) and the monthly panel (792 months, 528 open columns), their codebooks, the attribution notice, and the scripts that rebuild the 52 columns from licensed sources (CRSP, Compustat, I/B/E/S, the Ken French Data Library, FRED series owned by third parties, and the EPU and GPR indices), which are not redistributed. The data are licensed column by column, under CC BY 4.0 or, for the columns derived from English Wikipedia, CC BY-SA 4.0; the files mixing both are distributed under CC BY-SA 4.0. The code is under the MIT license.</p><p>Website, searchable codebook and documentation: <a href=\"https://www.tradingdaysdata.com\">www.tradingdaysdata.com</a>.</p>",
+  "creators": [
+    {"name": "Coqueret, Guillaume", "affiliation": "EMLYON Business School"},
+    {"name": "Lopez-Lira, Alejandro", "affiliation": "University of Florida"}
+  ],
+  "license": "cc-by-sa-4.0",
+  "access_right": "open",
+  "keywords": ["trading days", "calendar effects", "announcement days", "FOMC", "asset pricing", "NYSE", "day characteristics"],
+  "related_identifiers": [
+    {"identifier": "https://www.tradingdaysdata.com", "relation": "isDocumentedBy", "resource_type": "other"},
+    {"identifier": "https://huggingface.co/datasets/agentcoqueret/tradingdaysdata", "relation": "isIdenticalTo", "resource_type": "dataset"}
+  ],
+  "language": "eng"
+}
