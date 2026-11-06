@@ -275,6 +275,9 @@ def page_data(cfg, daily, monthly, man) -> str:
     base = rel.get("download_base")
     doi = (f'<a href="https://doi.org/{E(rel["doi"])}">doi:{E(rel["doi"])}</a>' if rel["doi"]
            else "assigned on Zenodo at publication")
+    if rel.get("concept_doi"):
+        doi += (f'; all versions: <a href="https://doi.org/{E(rel["concept_doi"])}">'
+                f'doi:{E(rel["concept_doi"])}</a>')
     desc = {
         "trading_days_daily_open.csv": "Daily panel: <code>trading_date</code> and the open columns",
         "trading_days_daily_open.parquet": "Daily panel, parquet (typed)",

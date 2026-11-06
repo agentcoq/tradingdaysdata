@@ -10,6 +10,8 @@ authors:
     given-names: Alejandro
     affiliation: University of Florida
 version: 1.0.0
+doi: 10.5281/zenodo.24020909
+date-released: 2026-11-06
 url: "https://www.tradingdaysdata.com"
 repository-code: "https://github.com/agentcoq/tradingdaysdata"
 license:

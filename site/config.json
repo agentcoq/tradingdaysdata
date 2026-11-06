@@ -18,15 +18,16 @@
   "huggingface_url": "https://huggingface.co/datasets/agentcoqueret/tradingdaysdata",
   "release": {
     "version": "1.0.0",
-    "date": null,
+    "date": "2026-11-06",
     "sample": "1960-01-04 to 2025-12-31",
-    "doi": null,
-    "download_base": null
+    "doi": "10.5281/zenodo.24020909",
+    "concept_doi": "10.5281/zenodo.24020908",
+    "download_base": "https://github.com/agentcoq/tradingdaysdata/releases/download/v1.0.0"
   },
   "news": [
     {
-      "date": "forthcoming",
-      "text": "Version 1.0.0: the release that matches the paper, one row per NYSE session from 1960-01-04 to 2025-12-31."
+      "date": "2026-11-06",
+      "text": "Version 1.0.0, the release that matches the paper: one row per NYSE session from 1960-01-04 to 2025-12-31 (DOI 10.5281/zenodo.24020909)."
     }
   ]
 }
