@@ -11,7 +11,7 @@
   "keywords": ["trading days", "calendar effects", "announcement days", "FOMC", "asset pricing", "NYSE", "day characteristics"],
   "related_identifiers": [
     {"identifier": "https://www.tradingdaysdata.com", "relation": "isDocumentedBy", "resource_type": "other"},
-    {"identifier": "https://huggingface.co/datasets/agentcoqueret/tradingdaysdata", "relation": "isIdenticalTo", "resource_type": "dataset"}
+    {"identifier": "https://huggingface.co/datasets/agentcoqueret/tradingdaysdata", "relation": "isVariantFormOf", "resource_type": "dataset"}
   ],
   "language": "eng"
 }
