@@ -1,0 +1,15 @@
+# tested with Python 3.12, pandas 2.x, numpy 2.x, requests 2.x
+pandas>=2.0
+numpy>=1.24
+requests>=2.28
+# WRDS blocks only (closed/build_crsp.py without --crsp-csv, closed/build_earnings.py)
+wrds>=3.1
+pyarrow>=14      # parquet cache of closed/build_earnings.py
+# open-block builders only (open/code/); not needed to use the data
+convertdate>=2.4
+pyluach>=2.2
+hijridate>=2.3
+lunardate>=0.2
+lunarcalendar>=0.0.9
+pdfplumber>=0.10   # open/code/release_fixes.py (BLS and Board PDFs)
+matplotlib>=3.7  # optional: closed/build_earnings.py --validate figure

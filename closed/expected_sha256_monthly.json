@@ -1,0 +1,516 @@
+{
+ "about": "SHA-256 of each closed monthly block file closed/out/monthly/<block>.csv (header 'month,<columns in panel order>', one row per calendar month 1960-01..2025-12, '\\n' line endings, CSV minimal quoting) and of each column (cell texts joined by '\\n' plus a trailing '\\n', header excluded), as they exist in the authors' monthly panel. Built from the full daily panel (sha256 in closed/expected_sha256.json) by closed/build_monthly.py. Reproduce with `python3 closed/verify.py --monthly`.",
+ "authors_vintage": {
+  "panel_built": "2026-10-01",
+  "daily_panel_sha256": "e53684c8e61656e7d3adca5d902dce28f8bc9cd1e324c27b007ed5fae949246c"
+ },
+ "full_panel": {
+  "file": "panel_monthly_full.csv (output of build_full.py --monthly)",
+  "rows": 792,
+  "columns": 593,
+  "sha256": "7bf98f004252ee28979f28d0b3824317eca30712aa61861d35fc4b4c76ddfbde"
+ },
+ "open_panel": {
+  "file": "open/monthly/panel_monthly_open.csv",
+  "columns": 529,
+  "sha256": "2a1a738fb1e098ce7c91581a1993b8489940f670ea1c7e74905e0447eac9d83d"
+ },
+ "blocks": {
+  "monthly_crsp": {
+   "file": "closed/out/monthly/monthly_crsp.csv",
+   "columns": [
+    "cum_crsp_vwretd",
+    "cum_crsp_ewretd",
+    "cum_crsp_sprtrn",
+    "cum_mkt_ret",
+    "sh_mkt_ret_source_ff",
+    "mean_mkt_rvol_5d",
+    "eom_mkt_rvol_5d",
+    "mean_mkt_rvol_21d",
+    "eom_mkt_rvol_21d",
+    "max_mkt_consecutive_up",
+    "max_mkt_consecutive_down",
+    "eom_mkt_dist_52w_high",
+    "eom_mkt_dist_52w_low"
+   ],
+   "sha256": "a8729922a19120f386ac5468eb70e7de4f6cd6dd9bb53ace1c727e21906f0cc2",
+   "column_sha256": {
+    "cum_crsp_vwretd": {
+     "sha256": "536529341cd67fe78d82616d71b26ba33f3a019a0af57c3f1058ef3078b6c51e",
+     "n_nonmissing": 780,
+     "first": "1960-01",
+     "last": "2024-12"
+    },
+    "cum_crsp_ewretd": {
+     "sha256": "8798b08982ff43a5037c98c311c8d4416a894ff71a317a4f9d7cc070c766d6ed",
+     "n_nonmissing": 780,
+     "first": "1960-01",
+     "last": "2024-12"
+    },
+    "cum_crsp_sprtrn": {
+     "sha256": "02d52090c2a15d6bb9355a16a8d4395f5cee4ed301a85d57df825460dc5d1a05",
+     "n_nonmissing": 749,
+     "first": "1962-08",
+     "last": "2024-12"
+    },
+    "cum_mkt_ret": {
+     "sha256": "fd4d60db5346d3e0a992bd1649ba5377e175fe61fdb08a7eff259dbf7e095edb",
+     "n_nonmissing": 792,
+     "first": "1960-01",
+     "last": "2025-12"
+    },
+    "sh_mkt_ret_source_ff": {
+     "sha256": "f09c9a71c166a31143b08e595b74b4d852f58f4e47c2152ea085cada69e50795",
+     "n_nonmissing": 792,
+     "first": "1960-01",
+     "last": "2025-12"
+    },
+    "mean_mkt_rvol_5d": {
+     "sha256": "19f4ee26508763af8c82c1903ba28ddc0a9feba15ede55870a93f0947cdc3ae4",
+     "n_nonmissing": 792,
+     "first": "1960-01",
+     "last": "2025-12"
+    },
+    "eom_mkt_rvol_5d": {
+     "sha256": "9efcbf027548dd4ba6db787235588d2382764e73b3763f1a678b1e8d20457bee",
+     "n_nonmissing": 792,
+     "first": "1960-01",
+     "last": "2025-12"
+    },
+    "mean_mkt_rvol_21d": {
+     "sha256": "0bdd5375ee03c88c872806e8f8a0b172156973da30e870d034ab756c1a6c8daa",
+     "n_nonmissing": 791,
+     "first": "1960-02",
+     "last": "2025-12"
+    },
+    "eom_mkt_rvol_21d": {
+     "sha256": "05f1519fd2102aa1def22305722e2ee105f4ba58e94582f3ff8fa9c64f6915aa",
+     "n_nonmissing": 791,
+     "first": "1960-02",
+     "last": "2025-12"
+    },
+    "max_mkt_consecutive_up": {
+     "sha256": "77ab7c0fe5b11f87a0730d1b0c526ecaed82a2914fbab1e04a2f47ebad41c2d9",
+     "n_nonmissing": 792,
+     "first": "1960-01",
+     "last": "2025-12"
+    },
+    "max_mkt_consecutive_down": {
+     "sha256": "9158ece4eec91136ee8a4ab2b0b3588d186e133095c7ce302d35b6e4c5a1bfec",
+     "n_nonmissing": 792,
+     "first": "1960-01",
+     "last": "2025-12"
+    },
+    "eom_mkt_dist_52w_high": {
+     "sha256": "ef75a9fa17286fb60ba682fefacfc0c1faa3d7f34f8f85ee061f09db56d0fce5",
+     "n_nonmissing": 790,
+     "first": "1960-03",
+     "last": "2025-12"
+    },
+    "eom_mkt_dist_52w_low": {
+     "sha256": "801a6ae3ab0e9486c2e9f5b920fb251a320d55bc094b943393555e515080b282",
+     "n_nonmissing": 790,
+     "first": "1960-03",
+     "last": "2025-12"
+    }
+   }
+  },
+  "monthly_french": {
+   "file": "closed/out/monthly/monthly_french.csv",
+   "columns": [
+    "cum_ff_mkt_rf",
+    "cum_ff_smb",
+    "cum_ff_hml",
+    "cum_ff_rmw",
+    "cum_ff_cma",
+    "cum_ff_rf",
+    "cum_ff_mkt"
+   ],
+   "sha256": "773c3cc18cfbad894bfbd6fa98b7d57cf580b4f4d78add5356d9ad11f8e16ff8",
+   "column_sha256": {
+    "cum_ff_mkt_rf": {
+     "sha256": "11fc9fc25bd49137e2a0f19fcd6473666bb3e9e93fa6386a37c2dab695de2de4",
+     "n_nonmissing": 792,
+     "first": "1960-01",
+     "last": "2025-12"
+    },
+    "cum_ff_smb": {
+     "sha256": "9eea06729d64e48cd69d6e3fc75f2d926649717af68fa65c03c221785008048f",
+     "n_nonmissing": 792,
+     "first": "1960-01",
+     "last": "2025-12"
+    },
+    "cum_ff_hml": {
+     "sha256": "5e428e272490de508fc4bfa0b2fa40458c6495ac1f8069c5ae32f47c41fcbff7",
+     "n_nonmissing": 792,
+     "first": "1960-01",
+     "last": "2025-12"
+    },
+    "cum_ff_rmw": {
+     "sha256": "907130651af0e1b3a900a288718ca73c8b20d1e71614858540c529ebaf25a730",
+     "n_nonmissing": 750,
+     "first": "1963-07",
+     "last": "2025-12"
+    },
+    "cum_ff_cma": {
+     "sha256": "5b4cfd074b5e995b60746bfefb06cf78889b3a4d2bbe8c61380e91c6c29586bf",
+     "n_nonmissing": 750,
+     "first": "1963-07",
+     "last": "2025-12"
+    },
+    "cum_ff_rf": {
+     "sha256": "adf629ecf6db1bd7909ddb7c393d58b5a5b4c0b78de1df9e063f43354d89a829",
+     "n_nonmissing": 792,
+     "first": "1960-01",
+     "last": "2025-12"
+    },
+    "cum_ff_mkt": {
+     "sha256": "e92eefcdd13de19d718393acddea3e1a1dd4c8c5f77f91efe35ca89a26ffc3d0",
+     "n_nonmissing": 792,
+     "first": "1960-01",
+     "last": "2025-12"
+    }
+   }
+  },
+  "monthly_fred_thirdparty": {
+   "file": "closed/out/monthly/monthly_fred_thirdparty.csv",
+   "columns": [
+    "mean_vix",
+    "eom_vix",
+    "max_vix",
+    "mean_credit_spread_baa10y",
+    "eom_credit_spread_baa10y",
+    "mean_credit_spread_aaa10y",
+    "eom_credit_spread_aaa10y",
+    "mean_sp500_level_fred",
+    "eom_sp500_level_fred",
+    "mean_ted_spread",
+    "eom_ted_spread",
+    "sh_vix_regime_high",
+    "sh_vix_regime_low",
+    "sh_vix_regime_medium"
+   ],
+   "sha256": "458e16c87434a70269ecacfc070a2b7c69f31a415f35580548c7cba98f621b9f",
+   "column_sha256": {
+    "mean_vix": {
+     "sha256": "54cc21c841c018ad7030177440f92c24edb007b6af8c12c7c1efe2fc576ca334",
+     "n_nonmissing": 432,
+     "first": "1990-01",
+     "last": "2025-12"
+    },
+    "eom_vix": {
+     "sha256": "f9f450f9d3fbb101a6edafbbc70eefec3fba9fc09b4648a3f47cc0dfee04ba5f",
+     "n_nonmissing": 431,
+     "first": "1990-01",
+     "last": "2025-12"
+    },
+    "max_vix": {
+     "sha256": "1b9ab9b124cec57d7ba70b9a73d01c13610a93ed13ca1059bce215cce407797e",
+     "n_nonmissing": 432,
+     "first": "1990-01",
+     "last": "2025-12"
+    },
+    "mean_credit_spread_baa10y": {
+     "sha256": "16a4a37c43fee3f45b8ac8964a600c46f54ce4699b9dd4546b6ec783cd60ce69",
+     "n_nonmissing": 480,
+     "first": "1986-01",
+     "last": "2025-12"
+    },
+    "eom_credit_spread_baa10y": {
+     "sha256": "33e6ef0fe90c48c31e0cc568965b0898c0ea2a6fad71e215af62659bb0f284dc",
+     "n_nonmissing": 479,
+     "first": "1986-01",
+     "last": "2025-12"
+    },
+    "mean_credit_spread_aaa10y": {
+     "sha256": "9cb2cc875daff37bc0d9a8590019c6e62f0c634260d648b90fa07f3147cfce17",
+     "n_nonmissing": 516,
+     "first": "1983-01",
+     "last": "2025-12"
+    },
+    "eom_credit_spread_aaa10y": {
+     "sha256": "a4bf73547e218dbee5fbad04c1af5d0c9817e4b17222189c60759306faa7e7bc",
+     "n_nonmissing": 515,
+     "first": "1983-01",
+     "last": "2025-12"
+    },
+    "mean_sp500_level_fred": {
+     "sha256": "97bc3db7f120ba36ab348ef3b2d37ef140c95ade3b5d09f66b041c3fd33b9b97",
+     "n_nonmissing": 111,
+     "first": "2016-10",
+     "last": "2025-12"
+    },
+    "eom_sp500_level_fred": {
+     "sha256": "5f723b5c85f94720049f2e8fd4e1aac5d3d618c18c28e68bdda17e565b9d439e",
+     "n_nonmissing": 112,
+     "first": "2016-09",
+     "last": "2025-12"
+    },
+    "mean_ted_spread": {
+     "sha256": "36f5fb13a953207b1de494104637ad60dfeeffeac41367caa25e245530bcbdfd",
+     "n_nonmissing": 433,
+     "first": "1986-01",
+     "last": "2022-01"
+    },
+    "eom_ted_spread": {
+     "sha256": "8049f294efd10bb9731a17cf7465d3fe7fabd3c53439224028e8ce9a4e159907",
+     "n_nonmissing": 421,
+     "first": "1986-01",
+     "last": "2021-12"
+    },
+    "sh_vix_regime_high": {
+     "sha256": "721eea12fc3f2bac2d5fbd5af766ec8c0c2173307466328249bb9a18aa74c596",
+     "n_nonmissing": 428,
+     "first": "1990-02",
+     "last": "2025-12"
+    },
+    "sh_vix_regime_low": {
+     "sha256": "6af77abf14a0951dd3afb504f267dbd93b02ff65a732794c2bdbc60dce399704",
+     "n_nonmissing": 428,
+     "first": "1990-02",
+     "last": "2025-12"
+    },
+    "sh_vix_regime_medium": {
+     "sha256": "af2554e1a808430a86064c1f9d6ebfd8c6cb522118112653e670428430f20bec",
+     "n_nonmissing": 428,
+     "first": "1990-02",
+     "last": "2025-12"
+    }
+   }
+  },
+  "monthly_epu": {
+   "file": "closed/out/monthly/monthly_epu.csv",
+   "columns": [
+    "mean_epu_daily",
+    "max_epu_daily",
+    "mean_epu_monthly"
+   ],
+   "sha256": "97c792a5ea892064bc6f86fbdd335a9299ec51c2ede268c3432251a6b69130b3",
+   "column_sha256": {
+    "mean_epu_daily": {
+     "sha256": "0d03f6c3b16daf3453b9be3d0c728805a88d1beb6f1ee010d1ba72435c3520d9",
+     "n_nonmissing": 492,
+     "first": "1985-01",
+     "last": "2025-12"
+    },
+    "max_epu_daily": {
+     "sha256": "8d7baad91e09a37ce5dc2bb87ee2018b704514d74b1c9c7b20972cd90bb4cd42",
+     "n_nonmissing": 492,
+     "first": "1985-01",
+     "last": "2025-12"
+    },
+    "mean_epu_monthly": {
+     "sha256": "f12550669b45c3b38cfd9517c3345799f1480499c2a22092f7f9dd0a7bc05435",
+     "n_nonmissing": 492,
+     "first": "1985-01",
+     "last": "2025-12"
+    }
+   }
+  },
+  "monthly_gpr": {
+   "file": "closed/out/monthly/monthly_gpr.csv",
+   "columns": [
+    "mean_gpr_daily",
+    "max_gpr_daily",
+    "mean_gpr_monthly",
+    "mean_gprh_monthly"
+   ],
+   "sha256": "52ced113b779ca03b3add5d299bef9dbe651a8b6859ee1a389d16df74a925565",
+   "column_sha256": {
+    "mean_gpr_daily": {
+     "sha256": "e235c69cc68ff2b7b4e0bcb75a99dffd0229e6c4e27038fc5e21a82312eb21c2",
+     "n_nonmissing": 492,
+     "first": "1985-01",
+     "last": "2025-12"
+    },
+    "max_gpr_daily": {
+     "sha256": "53dbdc7e476f8b11f5f6ed4f0731c9b836434df88ee30906b23072f542af80be",
+     "n_nonmissing": 492,
+     "first": "1985-01",
+     "last": "2025-12"
+    },
+    "mean_gpr_monthly": {
+     "sha256": "eabaf9e20ee7402cc3eb65586081ea05f806b9a644f305f963c80e41d63ef13c",
+     "n_nonmissing": 492,
+     "first": "1985-01",
+     "last": "2025-12"
+    },
+    "mean_gprh_monthly": {
+     "sha256": "5fa9135042ee4b9680174f46a95749c477089d000793d95967d73811fbbbbd89",
+     "n_nonmissing": 792,
+     "first": "1960-01",
+     "last": "2025-12"
+    }
+   }
+  },
+  "monthly_earnings": {
+   "file": "closed/out/monthly/monthly_earnings.csv",
+   "columns": [
+    "sum_ea_count",
+    "mean_ea_count",
+    "sum_ea_mcap_share",
+    "mean_ea_mcap_share",
+    "sum_ea_count_top500",
+    "mean_ea_count_top500",
+    "wmean_ea_share_time_known",
+    "sum_ea_n_shifted_after_close",
+    "mean_ea_universe_n_prev",
+    "eom_ea_universe_n_prev",
+    "sh_ea_cov_mcap",
+    "sh_ea_cov_count",
+    "sh_ea_cov_ibes",
+    "sh_ea_cov_times",
+    "n_ea_crsp_ciz",
+    "sh_ea_crsp_ciz",
+    "sum_eax_count",
+    "mean_eax_count",
+    "sum_eax_mcap_share",
+    "mean_eax_mcap_share",
+    "sum_eax_count_top500",
+    "mean_eax_count_top500",
+    "sh_eax_cov"
+   ],
+   "sha256": "25463d3efa852ab0a544db303462c4506da1088792e0170a1351a31e29e1283b",
+   "column_sha256": {
+    "sum_ea_count": {
+     "sha256": "da0997c2bb0f7cc842ece5587eb879eaf24cdcf48ee72459c9bc0d48b357191c",
+     "n_nonmissing": 653,
+     "first": "1971-08",
+     "last": "2025-12"
+    },
+    "mean_ea_count": {
+     "sha256": "4f72f307d685e0cf6781842e2dc0951a2ac0c1a46f2a1d1fda0b726b0318babf",
+     "n_nonmissing": 653,
+     "first": "1971-08",
+     "last": "2025-12"
+    },
+    "sum_ea_mcap_share": {
+     "sha256": "d29bd071c8745f2587bc5cceffed062309e5d0c1062a381eb04546069847dcdd",
+     "n_nonmissing": 653,
+     "first": "1971-08",
+     "last": "2025-12"
+    },
+    "mean_ea_mcap_share": {
+     "sha256": "7bb94940ad310d0032d7d489f937aa1bbf88ecd16db66459cb51ccf1bfc78997",
+     "n_nonmissing": 653,
+     "first": "1971-08",
+     "last": "2025-12"
+    },
+    "sum_ea_count_top500": {
+     "sha256": "8d233f8c4cbd0615a112b4cebd3edcb6dc47b629c40e0b0be94052f25509d094",
+     "n_nonmissing": 653,
+     "first": "1971-08",
+     "last": "2025-12"
+    },
+    "mean_ea_count_top500": {
+     "sha256": "8f4aef3adcdc458a84adb387b8ce6bab388b43cc87cce3f8f4a4caf8ef5a729e",
+     "n_nonmissing": 653,
+     "first": "1971-08",
+     "last": "2025-12"
+    },
+    "wmean_ea_share_time_known": {
+     "sha256": "bf3e57a3b7d87f11a90cc1f7f75c8211cdbc22edb16ddcc430bd97e0312204ba",
+     "n_nonmissing": 653,
+     "first": "1971-08",
+     "last": "2025-12"
+    },
+    "sum_ea_n_shifted_after_close": {
+     "sha256": "9a7902cf53d08c097e4191f5154e7a367a264a0e2937d2c217fc054d0fc39dd6",
+     "n_nonmissing": 653,
+     "first": "1971-08",
+     "last": "2025-12"
+    },
+    "mean_ea_universe_n_prev": {
+     "sha256": "c1ad04b8b43fcde492f72b16741831e578efa882e1e27ba5b959254af1b1d875",
+     "n_nonmissing": 792,
+     "first": "1960-01",
+     "last": "2025-12"
+    },
+    "eom_ea_universe_n_prev": {
+     "sha256": "54c7de6d2e60e12aa24defa4cab3abbcf1848d078d94800199020eeb3cb501dd",
+     "n_nonmissing": 792,
+     "first": "1960-01",
+     "last": "2025-12"
+    },
+    "sh_ea_cov_mcap": {
+     "sha256": "ed5035c655011bdd8b93b78468289033bd5d31b9bfb441270be993cea92ff0e8",
+     "n_nonmissing": 792,
+     "first": "1960-01",
+     "last": "2025-12"
+    },
+    "sh_ea_cov_count": {
+     "sha256": "0bb1607a5bb09ac992756dc5415ecfdacabea5415da994f9cd0ae15f64d09f9a",
+     "n_nonmissing": 792,
+     "first": "1960-01",
+     "last": "2025-12"
+    },
+    "sh_ea_cov_ibes": {
+     "sha256": "dd17c3b7393b9976b2f3c7f328bd72ec049ae08621ec6e96be42f5c0faa358bc",
+     "n_nonmissing": 792,
+     "first": "1960-01",
+     "last": "2025-12"
+    },
+    "sh_ea_cov_times": {
+     "sha256": "d93378875ca0340d4f288fdb0fabfb1bcc81ebd3cf1513066cc5b4f400559346",
+     "n_nonmissing": 792,
+     "first": "1960-01",
+     "last": "2025-12"
+    },
+    "n_ea_crsp_ciz": {
+     "sha256": "7debe03cf2b50d38b8f2b28e85305d5e056ffe69c8f058fe8345b1d38d0c0f0d",
+     "n_nonmissing": 792,
+     "first": "1960-01",
+     "last": "2025-12"
+    },
+    "sh_ea_crsp_ciz": {
+     "sha256": "e7b1fa66ce4c6c8741b1be24995748db417266478e0fc51a1e83abad0b605232",
+     "n_nonmissing": 792,
+     "first": "1960-01",
+     "last": "2025-12"
+    },
+    "sum_eax_count": {
+     "sha256": "eaf04d3031b03fbd1f194c87c6497cb363a5f2c15c0fe3fb33eaceb940bfc329",
+     "n_nonmissing": 641,
+     "first": "1972-08",
+     "last": "2025-12"
+    },
+    "mean_eax_count": {
+     "sha256": "1da3669a661780b2e9fccdc363f63c4119fed6e3d73208d204c9825c8dc9ee74",
+     "n_nonmissing": 641,
+     "first": "1972-08",
+     "last": "2025-12"
+    },
+    "sum_eax_mcap_share": {
+     "sha256": "74de64edf9e160e07941f4b11972a0beb28ad46f87ae94ba70feaba386a696c8",
+     "n_nonmissing": 641,
+     "first": "1972-08",
+     "last": "2025-12"
+    },
+    "mean_eax_mcap_share": {
+     "sha256": "a243ebfe4a42cd5092c032c7eb74ace9e92b1b7dca33e9c6908c0e8bee854148",
+     "n_nonmissing": 641,
+     "first": "1972-08",
+     "last": "2025-12"
+    },
+    "sum_eax_count_top500": {
+     "sha256": "b717408f0dacab423b2ca22c9d0e264a685cb0ddc529241f9dc78cf093cb8e76",
+     "n_nonmissing": 641,
+     "first": "1972-08",
+     "last": "2025-12"
+    },
+    "mean_eax_count_top500": {
+     "sha256": "e2ff3c0cdf992b66483146e94d0c616b5a200546c47625689648a82fbce11e6b",
+     "n_nonmissing": 641,
+     "first": "1972-08",
+     "last": "2025-12"
+    },
+    "sh_eax_cov": {
+     "sha256": "4790696c00f052d538b2d2f456e69f82db11130c43b9e74a8d0aa0b0ccd19740",
+     "n_nonmissing": 792,
+     "first": "1960-01",
+     "last": "2025-12"
+    }
+   }
+  }
+ }
+}

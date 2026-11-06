@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Build the downloadable files of one release from the data repository.
 
-    python3 site/make_release.py --data ../tradingdays-data
+    python3 site/make_release.py
 
 Reads the open tier of the data repository and writes release/v<version>/ (not committed; the files go to the
 GitHub release and to Zenodo):
@@ -44,7 +44,7 @@ def sha256(p: Path) -> str:
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--data", default=str(ROOT.parent / "tradingdays-data"))
+    ap.add_argument("--data", default=str(ROOT))   # the public copy made by sync_public.py
     a = ap.parse_args()
     data = Path(a.data)
     cfg = json.loads((ROOT / "site/config.json").read_text())

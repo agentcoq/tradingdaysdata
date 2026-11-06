@@ -1,0 +1,78 @@
+{
+ "monthly_crsp": [
+  "cum_crsp_vwretd",
+  "cum_crsp_ewretd",
+  "cum_crsp_sprtrn",
+  "cum_mkt_ret",
+  "sh_mkt_ret_source_ff",
+  "mean_mkt_rvol_5d",
+  "eom_mkt_rvol_5d",
+  "mean_mkt_rvol_21d",
+  "eom_mkt_rvol_21d",
+  "max_mkt_consecutive_up",
+  "max_mkt_consecutive_down",
+  "eom_mkt_dist_52w_high",
+  "eom_mkt_dist_52w_low"
+ ],
+ "monthly_french": [
+  "cum_ff_mkt_rf",
+  "cum_ff_smb",
+  "cum_ff_hml",
+  "cum_ff_rmw",
+  "cum_ff_cma",
+  "cum_ff_rf",
+  "cum_ff_mkt"
+ ],
+ "monthly_fred_thirdparty": [
+  "mean_vix",
+  "eom_vix",
+  "max_vix",
+  "mean_credit_spread_baa10y",
+  "eom_credit_spread_baa10y",
+  "mean_credit_spread_aaa10y",
+  "eom_credit_spread_aaa10y",
+  "mean_sp500_level_fred",
+  "eom_sp500_level_fred",
+  "mean_ted_spread",
+  "eom_ted_spread",
+  "sh_vix_regime_high",
+  "sh_vix_regime_low",
+  "sh_vix_regime_medium"
+ ],
+ "monthly_epu": [
+  "mean_epu_daily",
+  "max_epu_daily",
+  "mean_epu_monthly"
+ ],
+ "monthly_gpr": [
+  "mean_gpr_daily",
+  "max_gpr_daily",
+  "mean_gpr_monthly",
+  "mean_gprh_monthly"
+ ],
+ "monthly_earnings": [
+  "sum_ea_count",
+  "mean_ea_count",
+  "sum_ea_mcap_share",
+  "mean_ea_mcap_share",
+  "sum_ea_count_top500",
+  "mean_ea_count_top500",
+  "wmean_ea_share_time_known",
+  "sum_ea_n_shifted_after_close",
+  "mean_ea_universe_n_prev",
+  "eom_ea_universe_n_prev",
+  "sh_ea_cov_mcap",
+  "sh_ea_cov_count",
+  "sh_ea_cov_ibes",
+  "sh_ea_cov_times",
+  "n_ea_crsp_ciz",
+  "sh_ea_crsp_ciz",
+  "sum_eax_count",
+  "mean_eax_count",
+  "sum_eax_mcap_share",
+  "mean_eax_mcap_share",
+  "sum_eax_count_top500",
+  "mean_eax_count_top500",
+  "sh_eax_cov"
+ ]
+}

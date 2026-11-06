@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""Build the static website (GitHub Pages, served from docs/) from the data repository's metadata.
+"""Build the static website (GitHub Pages, served from docs/) from the public data files of this repository.
 
-    python3 site/build_site.py --data ../tradingdays-data
+    python3 site/build_site.py
 
 Inputs: site/config.json (release, DOI, links), the data dictionaries open/columns.csv and
 open/monthly/columns_monthly.csv, the attribution notice NOTICE.md, and, if present, release/v<version>/manifest.json
@@ -483,8 +483,9 @@ def page_sources(cfg, notice_md: str) -> str:
 <h1>Sources and attribution</h1>
 <p>The source of every column is in the <a href="codebook.html">codebook</a>. This page lists the providers whose
 data or dates enter the dataset, with the attribution each one asks for. File names such as
-<code>open/columns.csv</code> refer to the data repository, whose files are also released as the
-<code>codebook_daily.csv</code> and data files of the <a href="data.html">data page</a>.</p>
+<code>open/columns.csv</code> refer to the <a href="{E(cfg['repo_url'])}">repository on GitHub</a>. Some of the
+files that this notice mentions, such as the event lists and the download records of the authors' build, are not
+part of the public release.</p>
 <div class="prose">
 {body}
 </div>
@@ -527,7 +528,8 @@ vintage, so that you can check that your rebuild matches ours.</p>
 
 <section>
   <h2>Rebuilding the full panel</h2>
-  <p>With Python 3.10 or later and the packages of <code>requirements.txt</code>:</p>
+  <p>Clone the <a href="{E(cfg['repo_url'])}">repository</a>, which holds the open panels and these scripts, and
+  run, with Python 3.10 or later and the packages of <code>requirements.txt</code>:</p>
 <pre><code># public downloads, no account needed
 python3 closed/build_french.py
 python3 closed/build_epu.py
@@ -558,7 +560,7 @@ python3 build_full.py --monthly   # full monthly panel</code></pre>
 # --------------------------------------------------------------------------- main
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--data", default=str(ROOT.parent / "tradingdays-data"))
+    ap.add_argument("--data", default=str(ROOT))   # the public copy made by sync_public.py
     a = ap.parse_args()
     data = Path(a.data)
     cfg = json.loads((SITE / "config.json").read_text())

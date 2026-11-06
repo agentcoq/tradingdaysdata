@@ -1,0 +1,438 @@
+{
+ "about": "SHA-256 of each closed block file closed/out/<block>.csv (header 'trading_date,<columns in panel order>', one row per trading day, '\\n' line endings, CSV minimal quoting) and of each column (cell texts joined by '\\n' plus a trailing '\\n', header excluded), as they exist in the authors' full panel. Reproduce with `python3 closed/verify.py`.",
+ "authors_vintage": {
+  "panel_built": "2026-09-30",
+  "crsp": "WRDS crsp.dsi (legacy SIZ daily index file), pulled 2026-09-28, ends 2024-12-31",
+  "french": "Ken French daily 3-factor zip banked 2026-09-25 and 5-factor 2x3 zip pulled 2026-09-28 (the library serves only its current vintage)",
+  "fred_thirdparty": "FRED API observations pulled 2026-09-28",
+  "epu": "FRED USEPUINDXD / USEPUINDXM pulled 2026-09-28",
+  "gpr": "matteoiacoviello.com data_gpr_daily_recent.dta and data_gpr_export.dta pulled 2026-09-28",
+  "earnings": "WRDS comp.fundq, crsp.ccmxpf_linktable, ibes.actu_epsus, wrdsapps.ibcrsphist, CRSP daily/monthly stock files (legacy SIZ through 2024-12-31, CIZ for 2025), pulled 2026-09-30"
+ },
+ "full_panel": {
+  "file": "panel_full.csv (output of build_full.py)",
+  "rows": 16610,
+  "columns": 409,
+  "sha256": "e53684c8e61656e7d3adca5d902dce28f8bc9cd1e324c27b007ed5fae949246c",
+  "md5": "1265dbbf60e9bbf6c7a7b92d1ebc3212"
+ },
+ "open_panel": {
+  "file": "open/panel_open.csv",
+  "columns": 357,
+  "sha256": "d7a02e5921f87b9bdc5c887179513f80a2f1c3e800d5d752a1890cc4821a02d4"
+ },
+ "blocks": {
+  "crsp": {
+   "file": "closed/out/crsp.csv",
+   "columns": [
+    "crsp_vwretd",
+    "crsp_ewretd",
+    "crsp_sprtrn",
+    "mkt_ret",
+    "mkt_ret_source_ff",
+    "mkt_ret_prev",
+    "mkt_ret_prev5",
+    "mkt_rvol_5d",
+    "mkt_rvol_21d",
+    "mkt_consecutive_up",
+    "mkt_consecutive_down",
+    "mkt_dist_52w_high",
+    "mkt_dist_52w_low"
+   ],
+   "sha256": "535f84b08b9957f2ac683e7e3e5063cb4c8862a2b804c200c410ac3acc767cd1",
+   "column_sha256": {
+    "crsp_vwretd": {
+     "sha256": "c95ae245731d2e822392cc1c48d244cd2ab5a740b3ea3a32b72d5a179acb50c6",
+     "n_nonmissing": 16360,
+     "first": "1960-01-04",
+     "last": "2024-12-31"
+    },
+    "crsp_ewretd": {
+     "sha256": "a85f3eedd87e87e8081bc1c30c661b2e6e7d371f05df2cda1eb064e81ecfc4df",
+     "n_nonmissing": 16360,
+     "first": "1960-01-04",
+     "last": "2024-12-31"
+    },
+    "crsp_sprtrn": {
+     "sha256": "685e2bd25867ac49605b0d274c262bf8579fdb27b371067fbea569e24860ce93",
+     "n_nonmissing": 15731,
+     "first": "1962-07-03",
+     "last": "2024-12-31"
+    },
+    "mkt_ret": {
+     "sha256": "86286185cd489ae028d77b426b54a2be2f8eaf1347c110c1944494e203a4d6b4",
+     "n_nonmissing": 16610,
+     "first": "1960-01-04",
+     "last": "2025-12-31"
+    },
+    "mkt_ret_source_ff": {
+     "sha256": "1c873bfce563f892ec6c87954e9470efda0eb5a812fb8bdef2e67364aae56daa",
+     "n_nonmissing": 16610,
+     "first": "1960-01-04",
+     "last": "2025-12-31"
+    },
+    "mkt_ret_prev": {
+     "sha256": "c886b4e709cd8d12620d17fae1a094bbaf177e08a4707f7b267af71b467987f6",
+     "n_nonmissing": 16609,
+     "first": "1960-01-05",
+     "last": "2025-12-31"
+    },
+    "mkt_ret_prev5": {
+     "sha256": "3ccbde57d0dd6b030bb17c3767d8412c4eaf588860ade844409cba97dfd29abd",
+     "n_nonmissing": 16605,
+     "first": "1960-01-11",
+     "last": "2025-12-31"
+    },
+    "mkt_rvol_5d": {
+     "sha256": "78bd3eaadcb442ea05e9be7cec0e6a9127589d4129ef6691643b8bb1b78cb6af",
+     "n_nonmissing": 16605,
+     "first": "1960-01-11",
+     "last": "2025-12-31"
+    },
+    "mkt_rvol_21d": {
+     "sha256": "4c33f5aaa1df449311e29f70057d3d040c57d59b374650130a182e5de57c8e3c",
+     "n_nonmissing": 16589,
+     "first": "1960-02-02",
+     "last": "2025-12-31"
+    },
+    "mkt_consecutive_up": {
+     "sha256": "5320e5dea37eb1b2a110a9e1e5011142d2544b98602fa6ee1998ae089a042fdb",
+     "n_nonmissing": 16609,
+     "first": "1960-01-05",
+     "last": "2025-12-31"
+    },
+    "mkt_consecutive_down": {
+     "sha256": "36409eb4785a142c8feab92a161c41b40b3f8ba4ededaefae0b0b07049772f0d",
+     "n_nonmissing": 16609,
+     "first": "1960-01-05",
+     "last": "2025-12-31"
+    },
+    "mkt_dist_52w_high": {
+     "sha256": "297fd1cb991abb2141c65831b52bfe9c749ebe07c8490f7b44ba344c52abbc5f",
+     "n_nonmissing": 16560,
+     "first": "1960-03-15",
+     "last": "2025-12-31"
+    },
+    "mkt_dist_52w_low": {
+     "sha256": "52ab6c841d515fea797195a2c1e4e0128ab0f1483dd7f610a728751077ae4ea7",
+     "n_nonmissing": 16560,
+     "first": "1960-03-15",
+     "last": "2025-12-31"
+    }
+   }
+  },
+  "french": {
+   "file": "closed/out/french.csv",
+   "columns": [
+    "ff_mkt_rf",
+    "ff_smb",
+    "ff_hml",
+    "ff_rmw",
+    "ff_cma",
+    "ff_rf",
+    "ff_mkt"
+   ],
+   "sha256": "e14f60b43274af9243513fec23289f0944dcf1ba1f96fef9a4f9b04c00592101",
+   "column_sha256": {
+    "ff_mkt_rf": {
+     "sha256": "235864836b14948adeed2cefd19fd5b6540ceeb2f0950dc0d5ff9a8d9c890aa4",
+     "n_nonmissing": 16610,
+     "first": "1960-01-04",
+     "last": "2025-12-31"
+    },
+    "ff_smb": {
+     "sha256": "7aa0592925e73ef779ef0fcc8278dc46afb5a107751baca956a4e541de552970",
+     "n_nonmissing": 16610,
+     "first": "1960-01-04",
+     "last": "2025-12-31"
+    },
+    "ff_hml": {
+     "sha256": "e701300e9ef96a1b2a96e949318c72cbf4b6c57f615e749cd25e6a1efbad47d9",
+     "n_nonmissing": 16610,
+     "first": "1960-01-04",
+     "last": "2025-12-31"
+    },
+    "ff_rmw": {
+     "sha256": "f8fb40f4ebf544035cf366fd76850e0207ad7ecf834cf8139501e5244acbf73e",
+     "n_nonmissing": 15731,
+     "first": "1963-07-01",
+     "last": "2025-12-31"
+    },
+    "ff_cma": {
+     "sha256": "413ce89d36248bd007b32eff3f43c090d98251c588cb3ecd86041a0bd0727193",
+     "n_nonmissing": 15731,
+     "first": "1963-07-01",
+     "last": "2025-12-31"
+    },
+    "ff_rf": {
+     "sha256": "8af81b0dcd838fdd2c10213c1f24a3701761c6ef5cbe959928d71358b7765408",
+     "n_nonmissing": 16610,
+     "first": "1960-01-04",
+     "last": "2025-12-31"
+    },
+    "ff_mkt": {
+     "sha256": "70c13a56db1e375d2a1a84b7b8a5878e93a70fee997cbd46cbe8af0d2224c80e",
+     "n_nonmissing": 16610,
+     "first": "1960-01-04",
+     "last": "2025-12-31"
+    }
+   }
+  },
+  "fred_thirdparty": {
+   "file": "closed/out/fred_thirdparty.csv",
+   "columns": [
+    "vix",
+    "credit_spread_baa10y",
+    "credit_spread_aaa10y",
+    "sp500_level_fred",
+    "ted_spread",
+    "vix_prev",
+    "vix_change_prev",
+    "vix_regime",
+    "credit_spread_baa10y_prev",
+    "ted_spread_prev"
+   ],
+   "sha256": "77706465df1d89c29f38c3cc6f43e4d549321a017a93830150b2189a13dd2768",
+   "column_sha256": {
+    "vix": {
+     "sha256": "151fd7c1716e1afaacfd839450dd13f4434aa2a096d2dfcee64401fcd18359f6",
+     "n_nonmissing": 9064,
+     "first": "1990-01-02",
+     "last": "2025-12-31"
+    },
+    "credit_spread_baa10y": {
+     "sha256": "dd69086e7a6470fed8425014c911e9be660528ad1364255e71c2057e3e9ffa4d",
+     "n_nonmissing": 9989,
+     "first": "1986-01-02",
+     "last": "2025-12-31"
+    },
+    "credit_spread_aaa10y": {
+     "sha256": "d131f30dd5dd84d462bd50c40a3f4f44fbba21e87c0caaa1aa5730c1979b82d4",
+     "n_nonmissing": 10736,
+     "first": "1983-01-03",
+     "last": "2025-12-31"
+    },
+    "sp500_level_fred": {
+     "sha256": "04799d6e214213db9ae8856ab41dadda143d7dc32f56004c41bfbaa84974cd56",
+     "n_nonmissing": 2327,
+     "first": "2016-09-29",
+     "last": "2025-12-31"
+    },
+    "ted_spread": {
+     "sha256": "7a3c3ed520954a9dc230673e8fa9036d73aa9e000217cfe5ca141e601d26786d",
+     "n_nonmissing": 8849,
+     "first": "1986-01-02",
+     "last": "2022-01-21"
+    },
+    "vix_prev": {
+     "sha256": "6e4fa59c13c6fdc239a8f5233a2cb9a5e7f4c7d011ff7717bc358ba45fab7650",
+     "n_nonmissing": 9063,
+     "first": "1990-01-03",
+     "last": "2025-12-31"
+    },
+    "vix_change_prev": {
+     "sha256": "92130e1be155d6b10aa3b531afd94aa9dbdd8ca6f523b4b00b0d3136b392bc6d",
+     "n_nonmissing": 9059,
+     "first": "1990-01-04",
+     "last": "2025-12-31"
+    },
+    "vix_regime": {
+     "sha256": "11ae4700614fad7267fd28021081ce6f09fb6dc18c0fb107cd4df1035db0900a",
+     "n_nonmissing": 9063,
+     "first": "1990-01-03",
+     "last": "2025-12-31"
+    },
+    "credit_spread_baa10y_prev": {
+     "sha256": "7de7c5d025387911ffa4df08c6c4c3f70c0076b4613982f8c814928cd33135be",
+     "n_nonmissing": 9988,
+     "first": "1986-01-03",
+     "last": "2025-12-31"
+    },
+    "ted_spread_prev": {
+     "sha256": "9b387069e85c2d56accea9e6199e51dec6d24c91dcd72717834788165cd93235",
+     "n_nonmissing": 8849,
+     "first": "1986-01-03",
+     "last": "2022-01-24"
+    }
+   }
+  },
+  "epu": {
+   "file": "closed/out/epu.csv",
+   "columns": [
+    "epu_daily",
+    "epu_daily_prev",
+    "epu_monthly"
+   ],
+   "sha256": "3e61fd0ec3944c8eee43a80db41b5e7855398bc57712c192431f9af574065051",
+   "column_sha256": {
+    "epu_daily": {
+     "sha256": "a1e76a74e3190dc3242cfca3ec7d0399bb8cb87a97dfa9a348126624f79d51be",
+     "n_nonmissing": 10330,
+     "first": "1985-01-02",
+     "last": "2025-12-31"
+    },
+    "epu_daily_prev": {
+     "sha256": "46c1d1f562bc12a1353c8a6a31ec40d559cb61779aeddc31ef842b38d51870d9",
+     "n_nonmissing": 10330,
+     "first": "1985-01-02",
+     "last": "2025-12-31"
+    },
+    "epu_monthly": {
+     "sha256": "304fce317e418dc2cae9ef092c8f342f555e8e77402034777e79079d4b71725f",
+     "n_nonmissing": 10330,
+     "first": "1985-01-02",
+     "last": "2025-12-31"
+    }
+   }
+  },
+  "gpr": {
+   "file": "closed/out/gpr.csv",
+   "columns": [
+    "gpr_daily",
+    "gpr_daily_prev",
+    "gpr_monthly",
+    "gprh_monthly"
+   ],
+   "sha256": "40da134c76df03fcf3c6ed587f0a9e9455b3b43f5d8084131e5eda719e4b879c",
+   "column_sha256": {
+    "gpr_daily": {
+     "sha256": "9b373eebba0fe1e4806ab89e5047ca105eaa0dc1f836b305283c4d19dc43f1fa",
+     "n_nonmissing": 10330,
+     "first": "1985-01-02",
+     "last": "2025-12-31"
+    },
+    "gpr_daily_prev": {
+     "sha256": "39da74e6377bd0f343ddba6b378056dd57c3d3ec5865fdee3994400a40cf3973",
+     "n_nonmissing": 10330,
+     "first": "1985-01-02",
+     "last": "2025-12-31"
+    },
+    "gpr_monthly": {
+     "sha256": "e9517f2e8f19984593669687bf3262d3a50777ddb13b3f3d5274ae254f1577bc",
+     "n_nonmissing": 10330,
+     "first": "1985-01-02",
+     "last": "2025-12-31"
+    },
+    "gprh_monthly": {
+     "sha256": "0bc382dfac48ee1bd54134a5d5241acc030a733f6a7e389fecc1c4def47df548",
+     "n_nonmissing": 16610,
+     "first": "1960-01-04",
+     "last": "2025-12-31"
+    }
+   }
+  },
+  "earnings": {
+   "file": "closed/out/earnings.csv",
+   "columns": [
+    "ea_count",
+    "ea_mcap_share",
+    "ea_count_top500",
+    "ea_share_time_known",
+    "ea_n_shifted_after_close",
+    "ea_universe_n_prev",
+    "ea_cov_mcap",
+    "ea_cov_count",
+    "ea_cov_ibes",
+    "ea_cov_times",
+    "ea_crsp_ciz",
+    "eax_count",
+    "eax_mcap_share",
+    "eax_count_top500",
+    "eax_cov"
+   ],
+   "sha256": "fca00cfedaefc6b6f3e8199ff2083c1791423d5112d5ea6bc8ed6376eed3abb9",
+   "column_sha256": {
+    "ea_count": {
+     "sha256": "68a0ae0314dbb4ec1219791fb48a6df1ad871dfc7d5d5b759725f88e8ffb3948",
+     "n_nonmissing": 13724,
+     "first": "1971-07-28",
+     "last": "2025-12-31"
+    },
+    "ea_mcap_share": {
+     "sha256": "dc706cf720b9f4437666c668cb9fbaf227b0c9b0026eb9caf14099f4b9ed73cc",
+     "n_nonmissing": 13724,
+     "first": "1971-07-28",
+     "last": "2025-12-31"
+    },
+    "ea_count_top500": {
+     "sha256": "27ea4cb4b1c09e8e151d8e9fd3d5319d645152aae36bbd9bef024cf72d41957d",
+     "n_nonmissing": 13724,
+     "first": "1971-07-28",
+     "last": "2025-12-31"
+    },
+    "ea_share_time_known": {
+     "sha256": "62f25561b7e9db67455932014f85613636ca264464414be1516238a85853316c",
+     "n_nonmissing": 13645,
+     "first": "1971-07-28",
+     "last": "2025-12-31"
+    },
+    "ea_n_shifted_after_close": {
+     "sha256": "9c7cf9464fe7c2407118b6e7bbe33d12fcd7f9a1488c4a1e89cade2744838e55",
+     "n_nonmissing": 13724,
+     "first": "1971-07-28",
+     "last": "2025-12-31"
+    },
+    "ea_universe_n_prev": {
+     "sha256": "25c58551c2a92062b54b4bc14ce5a0411a90dcd90b584b8ae7ab41e089b5d7e7",
+     "n_nonmissing": 16609,
+     "first": "1960-01-05",
+     "last": "2025-12-31"
+    },
+    "ea_cov_mcap": {
+     "sha256": "04a53f8eef708af0d78b01c670306ae8f6246ed320eed1c629e802abbc2666f4",
+     "n_nonmissing": 16610,
+     "first": "1960-01-04",
+     "last": "2025-12-31"
+    },
+    "ea_cov_count": {
+     "sha256": "c993caa0a1dddfad1d1bd04dce889dcbf9576b2182799517fc00574847c58333",
+     "n_nonmissing": 16610,
+     "first": "1960-01-04",
+     "last": "2025-12-31"
+    },
+    "ea_cov_ibes": {
+     "sha256": "f781807b1757b9f1c1fea8ce530f5ae0d7a74f20e6533889ef23d5fb244e7ad5",
+     "n_nonmissing": 16610,
+     "first": "1960-01-04",
+     "last": "2025-12-31"
+    },
+    "ea_cov_times": {
+     "sha256": "3fda5c295a455f6261437c98ae7ff2382f7cfccba70e00f087da08003fb8bd83",
+     "n_nonmissing": 16610,
+     "first": "1960-01-04",
+     "last": "2025-12-31"
+    },
+    "ea_crsp_ciz": {
+     "sha256": "a22bfab65f3b00a30a7a2efb508e7bdc07a34e800c9092b349277b46fe80fe0d",
+     "n_nonmissing": 16610,
+     "first": "1960-01-04",
+     "last": "2025-12-31"
+    },
+    "eax_count": {
+     "sha256": "d1b5747c9fdf3077e4c317291d6fe7dea4246b27e454f9a9b61606bac217a923",
+     "n_nonmissing": 13471,
+     "first": "1972-07-26",
+     "last": "2025-12-31"
+    },
+    "eax_mcap_share": {
+     "sha256": "20c6b5ecc4b05a149366bc5b1f9fce579ded7ab4e4a72af5b92faece05472b0b",
+     "n_nonmissing": 13471,
+     "first": "1972-07-26",
+     "last": "2025-12-31"
+    },
+    "eax_count_top500": {
+     "sha256": "d3e1bd85f7838def7c828e331a8140553a0432a9df816bfd1ec85fb7663f2240",
+     "n_nonmissing": 13471,
+     "first": "1972-07-26",
+     "last": "2025-12-31"
+    },
+    "eax_cov": {
+     "sha256": "4850b064ca3e7b5fece2c14f6d5a73bf4d0addbdc3360cb0d9c5415f4b21c9c6",
+     "n_nonmissing": 16610,
+     "first": "1960-01-04",
+     "last": "2025-12-31"
+    }
+   }
+  }
+ }
+}

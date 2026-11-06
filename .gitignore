@@ -1,3 +1,9 @@
 release/
 .DS_Store
 __pycache__/
+# rebuilt licensed data and local caches: never committed
+closed/out/
+closed/raw/
+panel_full.csv
+panel_monthly_full.csv
+.env
