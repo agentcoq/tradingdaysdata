@@ -1,7 +1,7 @@
 {
   "site_name": "Trading Days Data",
-  "domain": "tradingdaysdata.com",
-  "domain_live": false,
+  "domain": "www.tradingdaysdata.com",
+  "domain_live": true,
   "paper_title": "The Cross-Section of Trading Days",
   "authors": [
     {
