@@ -2,7 +2,7 @@
 """Stage, and optionally upload, the Hugging Face mirror of one release.
 
     python3 site/make_huggingface.py                                  # stage release/huggingface/ only
-    HF_TOKEN=... python3 site/make_huggingface.py --push --repo OWNER/NAME
+    hf auth login && python3 site/make_huggingface.py --push --repo OWNER/NAME
 
 Staging reads release/v<version>/ (written by make_release.py) and writes release/huggingface/:
 
@@ -15,7 +15,7 @@ Staging reads release/v<version>/ (written by make_release.py) and writes releas
 Only the open files of the release are staged; the script stops if a staged panel holds a column that its codebook
 does not mark as open. --push uploads the staged folder to a Hugging Face dataset repository (created if absent)
 and tags the commit v<version>, so that every version stays available. It needs `pip install huggingface_hub` and
-a write token in HF_TOKEN, which is read from the environment and never printed or written to disk.
+a write token, from `hf auth login` or from HF_TOKEN; the script never prints or writes it.
 """
 from __future__ import annotations
 
@@ -156,8 +156,8 @@ def stage() -> Path:
 
 
 def push(repo: str, version: str):
-    from huggingface_hub import HfApi    # pip install huggingface_hub
-    token = os.environ["HF_TOKEN"]          # checked in main() before anything is staged
+    from huggingface_hub import HfApi, get_token    # pip install huggingface_hub
+    token = os.environ.get("HF_TOKEN") or get_token()    # HF_TOKEN, else the login saved by `hf auth login`
     text = (STAGE / "README.md").read_text(encoding="utf-8").replace("OWNER/NAME", repo)
     (STAGE / "README.md").write_text(text, encoding="utf-8")
     api = HfApi(token=token)
@@ -182,7 +182,9 @@ def main():
     if a.push and not a.repo:
         ap.error("--push needs --repo OWNER/NAME")
     if a.push and not os.environ.get("HF_TOKEN"):
-        ap.error("--push needs a Hugging Face write token in HF_TOKEN")
+        from huggingface_hub import get_token
+        if not get_token():
+            ap.error("--push needs a Hugging Face write token: run `hf auth login`, or set HF_TOKEN")
     stage()
     if a.push:
         version = json.loads((ROOT / "site/config.json").read_text())["release"]["version"]

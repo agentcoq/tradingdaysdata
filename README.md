@@ -75,7 +75,7 @@ python3 site/sync_public.py --data ../tradingdays-data   # copy the public files
 python3 site/make_release.py                             # release/v<version>/: CSV, parquet, codebooks, SHA256SUMS (needs pandas, pyarrow)
 python3 site/build_site.py                               # regenerate docs/ (standard library only)
 python3 site/make_huggingface.py                         # stage the Hugging Face mirror in release/huggingface/
-HF_TOKEN=... python3 site/make_huggingface.py --push --repo OWNER/NAME   # upload it and tag v<version>
+hf auth login && python3 site/make_huggingface.py --push --repo OWNER/NAME   # upload it and tag v<version>
 ```
 
 `sync_public.py` copies only the files on its public list and stops if a licensed column, a data file under
