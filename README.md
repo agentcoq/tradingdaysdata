@@ -29,7 +29,7 @@ site/, docs/                      the website and the scripts that build it and 
 ```
 
 Each release is also published as a GitHub release and on Zenodo, with a DOI, as CSV and parquet files, and
-mirrored on Hugging Face.
+mirrored on Hugging Face: <https://huggingface.co/datasets/agentcoqueret/tradingdaysdata>.
 
 ## Using the data
 
