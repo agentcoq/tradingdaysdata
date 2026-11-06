@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Documentation · Trading Days Data</title>
+<meta name="description" content="Open dataset of The Cross-Section of Trading Days: characteristics of every NYSE trading day since 1960.">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap header-row">
+    <a class="brand" href="index.html">Trading Days Data</a>
+    <nav class="nav" aria-label="Main"><a href="index.html">Home</a><a href="data.html">Data</a><a href="codebook.html">Codebook</a><a href="documentation.html" aria-current="page">Documentation</a><a href="sources.html">Sources</a><a href="rebuild.html">Licensed columns</a></nav>
+  </div>
+</header>
+<main class="wrap">
+
+<h1>Documentation</h1>
+
+<section>
+  <h2>Unit of observation</h2>
+  <p>One row per NYSE trading session, from 1960-01-04 to 2025-12-31. The session list follows the holiday and
+  closure rules of the NYSE, and every closure is recorded with an identifier and a cause, including the Wednesday
+  closures of the 1968 paperwork crisis and the closures after September 11, 2001. Scheduled opening and closing
+  times are recorded for each session, so early closes are part of the data.</p>
+</section>
+
+<section>
+  <h2>Dating rule</h2>
+  <p>The return of session <i>t</i> runs from the close of session <i>t</i>&minus;1 to the close of session
+  <i>t</i>. An event that occurs on a trading day, at or before the close, belongs to that day's session. Any other
+  event belongs to the next session: events on weekends or holidays, earnings announced after the close, and
+  sports finals played in the evening are assigned to the next session, the first one in which the market can react
+  to them. A macroeconomic release with no recorded time is assigned its usual release time of 8:30. Whenever an
+  official source exists, the date comes from it: the release calendar of the statistical agency, the Federal
+  Reserve for FOMC decisions, the exchange for closures.</p>
+</section>
+
+<section>
+  <h2>Timing</h2>
+  <p>Each column is tagged <code>ex_ante</code> (193 columns) if its value is known before the
+  session opens, as for calendar positions and the dates of scheduled announcements, or <code>realized</code>
+  (215 columns) if it becomes known only during or after the session, as for the weather, disasters
+  or daily uncertainty indices. Realized columns should be lagged by one session in forecasts.</p>
+</section>
+
+<section>
+  <h2>Quality grades</h2>
+  <dl class="grades">
+    <dt><code>verified</code> (54)</dt><dd>the audited base release of the dataset</dd>
+    <dt><code>exact-source</code> (143)</dt><dd>dated from a primary source</dd>
+    <dt><code>rule</code> (33)</dt><dd>a deterministic rule applied as written</dd>
+    <dt><code>wiki-sourced</code> (157)</dt><dd>dated from English Wikipedia articles</dd>
+    <dt><code>approximate</code> (21)</dt><dd>hand-listed windows or rules whose edges are
+    judgement calls</dd>
+  </dl>
+</section>
+
+<section>
+  <h2>Blocks</h2>
+  <p>The 408 characteristics, open and licensed, are grouped into blocks of related columns. The counts on
+  this page exclude the date key <code>trading_date</code>.</p>
+  <div class="table-wrap narrow"><table><thead><tr><th>Block</th><th class="num">Columns</th></tr></thead>
+  <tbody><tr><td><code>wiki_attention</code></td><td class='num'>113</td></tr><tr><td><code>base</code></td><td class='num'>54</td></tr><tr><td><code>market</code></td><td class='num'>32</td></tr><tr><td><code>calendar</code></td><td class='num'>32</td></tr><tr><td><code>macro</code></td><td class='num'>21</td></tr><tr><td><code>events</code></td><td class='num'>17</td></tr><tr><td><code>mood_placebos</code></td><td class='num'>16</td></tr><tr><td><code>earnings</code></td><td class='num'>15</td></tr><tr><td><code>wiki_sports</code></td><td class='num'>13</td></tr><tr><td><code>religious_holidays</code></td><td class='num'>13</td></tr><tr><td><code>sports_outcomes</code></td><td class='num'>11</td></tr><tr><td><code>wiki_political</code></td><td class='num'>10</td></tr><tr><td><code>wiki_disasters</code></td><td class='num'>10</td></tr><tr><td><code>fomc</code></td><td class='num'>9</td></tr><tr><td><code>fomc_cycle</code></td><td class='num'>8</td></tr><tr><td><code>ecb_exact</code></td><td class='num'>8</td></tr><tr><td><code>payment_days</code></td><td class='num'>8</td></tr><tr><td><code>market_structure</code></td><td class='num'>7</td></tr><tr><td><code>fed_treasury_comm</code></td><td class='num'>6</td></tr><tr><td><code>index_rebalancing</code></td><td class='num'>5</td></tr></tbody></table></div>
+</section>
+
+<section>
+  <h2>Licenses</h2>
+  <ul><li>CC-BY-4.0: 309 columns</li><li>licensed source, not redistributed: 52 columns</li><li>CC-BY-SA-4.0: 47 columns</li></ul>
+  <p>The license of each column is in the codebook. The open daily file holds both CC&nbsp;BY&nbsp;4.0 and
+  CC&nbsp;BY-SA&nbsp;4.0 columns: if you redistribute the whole file, CC&nbsp;BY-SA&nbsp;4.0 satisfies both; if you
+  redistribute only CC&nbsp;BY columns, CC&nbsp;BY&nbsp;4.0 applies. Code is under the MIT license.</p>
+</section>
+
+<section>
+  <h2>Using the columns as controls</h2>
+  <p>Beyond day effects, the columns can serve as control variables: calendar and announcement indicators in
+  daily return regressions, flags for FOMC or macroeconomic release days in event studies, scheduled releases,
+  holidays and early closes in volatility and liquidity models, and monthly counts of sessions and announcements in
+  monthly regressions. Several columns can describe the same event, so keep one of them in a regression, and use
+  only <code>ex_ante</code> columns, or lagged <code>realized</code> ones, in forecasts.</p>
+</section>
+
+<section>
+  <h2>Versions and updates</h2>
+  <p>The data are updated once a year, in the first quarter, when the year-end data are available. Each update is a
+  new version with its own DOI. A version is never overwritten, and the sources of each version are pinned: every
+  raw download is recorded with its address, the time it was made and its checksum.</p>
+</section>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>Data and documentation for <em>The Cross-Section of Trading Days</em>, by Guillaume Coqueret and Alejandro Lopez-Lira.
+    Open data under CC&nbsp;BY&nbsp;4.0 or CC&nbsp;BY-SA&nbsp;4.0, column by column; code under the MIT license.</p>
+  </div>
+</footer>
+
+</body>
+</html>

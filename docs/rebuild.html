@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Licensed columns · Trading Days Data</title>
+<meta name="description" content="Open dataset of The Cross-Section of Trading Days: characteristics of every NYSE trading day since 1960.">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap header-row">
+    <a class="brand" href="index.html">Trading Days Data</a>
+    <nav class="nav" aria-label="Main"><a href="index.html">Home</a><a href="data.html">Data</a><a href="codebook.html">Codebook</a><a href="documentation.html">Documentation</a><a href="sources.html">Sources</a><a href="rebuild.html" aria-current="page">Licensed columns</a></nav>
+  </div>
+</header>
+<main class="wrap">
+
+<h1>Licensed columns</h1>
+<p>52 columns come from sources whose terms do not allow us to redistribute them. We release, for each of these
+columns, a script that rebuilds it from your own access, and the SHA-256 checksum of every block and column at our
+vintage, so that you can check that your rebuild matches ours.</p>
+
+<div class="table-wrap"><table class="rebuild">
+  <thead><tr><th>Block</th><th class="num">Columns</th><th>Source</th><th>What you need</th><th>Script</th></tr></thead>
+  <tbody>
+<tr><td><code>earnings</code></td><td class='num'>15</td><td>Compustat, I/B/E/S and CRSP via WRDS</td><td>WRDS subscriptions (Compustat, I/B/E/S, CRSP)</td><td><code>closed/build_earnings.py</code></td></tr>
+<tr class='sub'><td></td><td colspan='4'><code>ea_count</code>, <code>ea_mcap_share</code>, <code>ea_count_top500</code>, <code>ea_share_time_known</code>, <code>ea_n_shifted_after_close</code>, <code>ea_universe_n_prev</code>, <code>ea_cov_mcap</code>, <code>ea_cov_count</code>, <code>ea_cov_ibes</code>, <code>ea_cov_times</code>, <code>ea_crsp_ciz</code>, <code>eax_count</code>, <code>eax_mcap_share</code>, <code>eax_count_top500</code>, <code>eax_cov</code></td></tr>
+<tr><td><code>crsp</code></td><td class='num'>13</td><td>CRSP daily index file via WRDS</td><td>WRDS subscription (CRSP)</td><td><code>closed/build_crsp.py</code></td></tr>
+<tr class='sub'><td></td><td colspan='4'><code>crsp_vwretd</code>, <code>crsp_ewretd</code>, <code>crsp_sprtrn</code>, <code>mkt_ret</code>, <code>mkt_ret_source_ff</code>, <code>mkt_ret_prev</code>, <code>mkt_ret_prev5</code>, <code>mkt_rvol_5d</code>, <code>mkt_rvol_21d</code>, <code>mkt_consecutive_up</code>, <code>mkt_consecutive_down</code>, <code>mkt_dist_52w_high</code>, <code>mkt_dist_52w_low</code></td></tr>
+<tr><td><code>fred_thirdparty</code></td><td class='num'>10</td><td>FRED series owned by third parties (CBOE, Moody's, S&amp;P DJI, ICE)</td><td>none; a FRED API key is optional</td><td><code>closed/build_fred_thirdparty.py</code></td></tr>
+<tr class='sub'><td></td><td colspan='4'><code>vix</code>, <code>credit_spread_baa10y</code>, <code>credit_spread_aaa10y</code>, <code>sp500_level_fred</code>, <code>ted_spread</code>, <code>vix_prev</code>, <code>vix_change_prev</code>, <code>vix_regime</code>, <code>credit_spread_baa10y_prev</code>, <code>ted_spread_prev</code></td></tr>
+<tr><td><code>french</code></td><td class='num'>7</td><td>Kenneth R. French Data Library</td><td>none (public download)</td><td><code>closed/build_french.py</code></td></tr>
+<tr class='sub'><td></td><td colspan='4'><code>ff_mkt_rf</code>, <code>ff_smb</code>, <code>ff_hml</code>, <code>ff_rmw</code>, <code>ff_cma</code>, <code>ff_rf</code>, <code>ff_mkt</code></td></tr>
+<tr><td><code>gpr</code></td><td class='num'>4</td><td>Caldara and Iacoviello, Geopolitical Risk index</td><td>none (public download)</td><td><code>closed/build_gpr.py</code></td></tr>
+<tr class='sub'><td></td><td colspan='4'><code>gpr_daily</code>, <code>gpr_daily_prev</code>, <code>gpr_monthly</code>, <code>gprh_monthly</code></td></tr>
+<tr><td><code>epu</code></td><td class='num'>3</td><td>Baker, Bloom and Davis, Economic Policy Uncertainty</td><td>none; a FRED API key is optional</td><td><code>closed/build_epu.py</code></td></tr>
+<tr class='sub'><td></td><td colspan='4'><code>epu_daily</code>, <code>epu_daily_prev</code>, <code>epu_monthly</code></td></tr>
+  </tbody>
+</table></div>
+
+<section>
+  <h2>Rebuilding the full panel</h2>
+  <p>With Python 3.10 or later and the packages of <code>requirements.txt</code>:</p>
+<pre><code># public downloads, no account needed
+python3 closed/build_french.py
+python3 closed/build_epu.py
+python3 closed/build_gpr.py
+python3 closed/build_fred_thirdparty.py
+# licensed: your WRDS subscriptions (CRSP; Compustat and I/B/E/S for earnings)
+WRDS_USER=your_username python3 closed/build_crsp.py
+WRDS_USER=your_username python3 closed/build_earnings.py
+python3 closed/verify.py          # which blocks and columns match our vintage
+python3 build_full.py             # open panel + rebuilt blocks -> full daily panel
+python3 closed/build_monthly.py   # licensed monthly blocks
+python3 closed/verify.py --monthly
+python3 build_full.py --monthly   # full monthly panel</code></pre>
+  <p>Credentials are read from environment variables only and are never written to disk. Without WRDS access,
+  <code>python3 build_full.py --allow-missing</code> builds the panel with the CRSP and earnings columns left empty;
+  the Ken French market return <code>ff_mkt</code> is a close substitute for <code>mkt_ret</code>.</p>
+</section>
+
+<section>
+  <h2>What to expect</h2>
+  <p>Public sources are revised and extended over time, so a fresh download can differ from our vintage.
+  <code>closed/verify.py</code> reports, for each block and column, whether your rebuild is byte-identical to ours,
+  and compares the coverage. Each rebuilt column stays under its provider's terms.</p>
+</section>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>Data and documentation for <em>The Cross-Section of Trading Days</em>, by Guillaume Coqueret and Alejandro Lopez-Lira.
+    Open data under CC&nbsp;BY&nbsp;4.0 or CC&nbsp;BY-SA&nbsp;4.0, column by column; code under the MIT license.</p>
+  </div>
+</footer>
+
+</body>
+</html>

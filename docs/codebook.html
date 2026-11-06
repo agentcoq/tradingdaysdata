@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Codebook · Trading Days Data</title>
+<meta name="description" content="Open dataset of The Cross-Section of Trading Days: characteristics of every NYSE trading day since 1960.">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body class="wide">
+<header class="site-header">
+  <div class="wrap header-row">
+    <a class="brand" href="index.html">Trading Days Data</a>
+    <nav class="nav" aria-label="Main"><a href="index.html">Home</a><a href="data.html">Data</a><a href="codebook.html" aria-current="page">Codebook</a><a href="documentation.html">Documentation</a><a href="sources.html">Sources</a><a href="rebuild.html">Licensed columns</a></nav>
+  </div>
+</header>
+<main class="wrap">
+
+<h1>Codebook</h1>
+<p>Every column of the daily and monthly panels, open and licensed. Search by name, source or note, and filter by
+block, timing, quality or license. Click a row to show its full source and note. The codebook can also be downloaded as CSV from the <a href="data.html">data
+page</a>.</p>
+<div class="tabs" role="tablist" aria-label="Panel">
+  <button role="tab" id="tab-daily" aria-selected="true" aria-controls="cb-panel" data-set="daily">Daily (408 columns)</button>
+  <button role="tab" id="tab-monthly" aria-selected="false" aria-controls="cb-panel" tabindex="-1" data-set="monthly">Monthly (592 columns)</button>
+</div>
+<form class="filters" id="filters">
+  <label>Search <input type="search" id="q" placeholder="e.g. fomc, cpi, holiday" autocomplete="off"></label>
+  <label>Block <select id="f-block"></select></label>
+  <label>Timing <select id="f-timing"></select></label>
+  <label>Quality <select id="f-quality"></select></label>
+  <label>License <select id="f-license"></select></label>
+</form>
+<p class="count" id="count" aria-live="polite"></p>
+<div class="table-wrap" id="cb-panel" role="tabpanel" aria-labelledby="tab-daily"><table class="codebook" id="cb"><thead></thead><tbody></tbody></table></div>
+<noscript><p>The codebook needs JavaScript. The same information is in <code>codebook_daily.csv</code> and
+<code>codebook_monthly.csv</code>.</p></noscript>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>Data and documentation for <em>The Cross-Section of Trading Days</em>, by Guillaume Coqueret and Alejandro Lopez-Lira.
+    Open data under CC&nbsp;BY&nbsp;4.0 or CC&nbsp;BY-SA&nbsp;4.0, column by column; code under the MIT license.</p>
+  </div>
+</footer>
+<script src="assets/codebook.js"></script>
+</body>
+</html>

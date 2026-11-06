@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Data · Trading Days Data</title>
+<meta name="description" content="Open dataset of The Cross-Section of Trading Days: characteristics of every NYSE trading day since 1960.">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap header-row">
+    <a class="brand" href="index.html">Trading Days Data</a>
+    <nav class="nav" aria-label="Main"><a href="index.html">Home</a><a href="data.html" aria-current="page">Data</a><a href="codebook.html">Codebook</a><a href="documentation.html">Documentation</a><a href="sources.html">Sources</a><a href="rebuild.html">Licensed columns</a></nav>
+  </div>
+</header>
+<main class="wrap">
+
+<h1>Data</h1>
+<section>
+  <h2>Version 1.0.0</h2>
+  <dl class="facts">
+    <dt>Sample</dt><dd>1960-01-04 to 2025-12-31, 16,610 NYSE sessions;
+      monthly: 1960-01 to 2025-12, 792 months</dd>
+    <dt>Open columns</dt><dd>356 daily, 528 monthly</dd>
+    <dt>DOI</dt><dd>assigned on Zenodo at publication</dd>
+    <dt>Released</dt><dd>forthcoming</dd>
+  </dl>
+  <p>This version matches the paper. The CSV files are the reference; the parquet files hold the same data with
+  numeric and date types.</p>
+  <p class="note">The files are published with the release. Until then, the links below are inactive.</p>
+  <div class="table-wrap"><table class="files">
+    <thead><tr><th>File</th><th>Contents</th><th class="num">Size</th></tr></thead>
+    <tbody>
+<tr><td><code>trading_days_daily_open.csv</code></td><td>Daily panel: <code>trading_date</code> and the open columns</td><td class='num'>15.3 MB</td></tr>
+<tr><td><code>trading_days_daily_open.parquet</code></td><td>Daily panel, parquet (typed)</td><td class='num'>2.5 MB</td></tr>
+<tr><td><code>trading_days_monthly_open.csv</code></td><td>Monthly panel: <code>month</code> and the open monthly columns</td><td class='num'>1.9 MB</td></tr>
+<tr><td><code>trading_days_monthly_open.parquet</code></td><td>Monthly panel, parquet (typed)</td><td class='num'>664 kB</td></tr>
+<tr><td><code>codebook_daily.csv</code></td><td>Daily codebook: every column, open and licensed</td><td class='num'>141 kB</td></tr>
+<tr><td><code>codebook_monthly.csv</code></td><td>Monthly codebook: every column, with its aggregation rule</td><td class='num'>200 kB</td></tr>
+    </tbody>
+  </table></div>
+  <details><summary>SHA-256 checksums</summary><pre class="sums"><code>167e43386455c7322c3b4608f380815df7de149fce0d5979160704c06db49f20  codebook_daily.csv
+5d8af436d2d3b3f907cc0a191f239c3c231b154c35b53619aab5450975c5b210  codebook_monthly.csv
+d7a02e5921f87b9bdc5c887179513f80a2f1c3e800d5d752a1890cc4821a02d4  trading_days_daily_open.csv
+cf0b0a9b32d66fe2e35dc5d926a5384e4fc0975384c400fdb854e670b205a230  trading_days_daily_open.parquet
+2a1a738fb1e098ce7c91581a1993b8489940f670ea1c7e74905e0447eac9d83d  trading_days_monthly_open.csv
+8085b20662f8edad472fbe110caa9a24d28d527cdbbcd4e76cfcf84d6aab0456  trading_days_monthly_open.parquet</code></pre></details>
+</section>
+
+<section>
+  <h2>Reading the data</h2>
+  <p>Each row of the daily panel is one NYSE session, keyed by <code>trading_date</code>. The return of session
+  <i>t</i> runs from the close of session <i>t</i>&minus;1 to the close of session <i>t</i>, so an event belongs to
+  the first session whose close comes at or after it. Columns tagged <code>ex_ante</code> in the codebook are known
+  before the session opens; columns tagged <code>realized</code> become known during or after the session and
+  should be lagged by one session in forecasts. The <a href="documentation.html">documentation</a> gives the
+  dating rules, the quality grades and the licenses.</p>
+<pre><code>import pandas as pd
+daily = pd.read_parquet("trading_days_daily_open.parquet")
+codebook = pd.read_csv("codebook_daily.csv")
+ex_ante = codebook.loc[codebook.timing == "ex_ante", "column"]</code></pre>
+</section>
+
+<section id="monthly">
+  <h2>Monthly version</h2>
+  <p>The monthly panel aggregates the daily data by calendar month: event flags become counts and shares of the
+  month's sessions, continuous series become monthly means, extremes and month-end values, daily returns are
+  compounded, and the calendar gives the number of sessions, weekdays, closures and early closes. Each monthly
+  column is tagged <code>known_at_start</code> if its value is fixed before the month begins, as for the number of
+  scheduled FOMC meetings, and <code>realized_in_month</code> otherwise.</p>
+</section>
+
+<section>
+  <h2>Licensed columns</h2>
+  <p>52 daily columns come from licensed or third-party sources and
+  are not in these files. <a href="rebuild.html">Scripts rebuild them</a> with your own access and merge them with
+  the open panel into the full panel.</p>
+</section>
+
+<section>
+  <h2>Earlier versions</h2>
+  <p>None yet. Each annual update will be listed here with its DOI, and every earlier version will stay
+  available unchanged.</p>
+</section>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>Data and documentation for <em>The Cross-Section of Trading Days</em>, by Guillaume Coqueret and Alejandro Lopez-Lira.
+    Open data under CC&nbsp;BY&nbsp;4.0 or CC&nbsp;BY-SA&nbsp;4.0, column by column; code under the MIT license.</p>
+  </div>
+</footer>
+
+</body>
+</html>

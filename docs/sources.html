@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sources · Trading Days Data</title>
+<meta name="description" content="Open dataset of The Cross-Section of Trading Days: characteristics of every NYSE trading day since 1960.">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap header-row">
+    <a class="brand" href="index.html">Trading Days Data</a>
+    <nav class="nav" aria-label="Main"><a href="index.html">Home</a><a href="data.html">Data</a><a href="codebook.html">Codebook</a><a href="documentation.html">Documentation</a><a href="sources.html" aria-current="page">Sources</a><a href="rebuild.html">Licensed columns</a></nav>
+  </div>
+</header>
+<main class="wrap">
+
+<h1>Sources and attribution</h1>
+<p>The source of every column is in the <a href="codebook.html">codebook</a>. This page lists the providers whose
+data or dates enter the dataset, with the attribution each one asks for. File names such as
+<code>open/columns.csv</code> refer to the data repository, whose files are also released as the
+<code>codebook_daily.csv</code> and data files of the <a href="data.html">data page</a>.</p>
+<div class="prose">
+<h2>Open tier</h2>
+<p>EventCal, named in several <code>source</code> fields, is the authors' event calendar (release v9_a18). It is a carrier of primary-source dates, not a source in its own right: the dates it supplies here come from the Board of Governors FOMC pages and the NY Fed target history, the BEA, BLS, Census and Treasury release and auction records, the Congressional Research Service list of federal funding gaps, and OpenFEMA disaster declarations, each cited below.</p>
+<h3>Base release <code>release_v22_a18</code> (55 columns, CC BY 4.0)</h3>
+<ul><li>
+NYSE session calendar: <code>pandas_market_calendars</code>, cross-checked against <code>exchange_calendars</code> and the SEC News Digest.
+</li><li>
+US daylight-saving statutes, and the IANA time zone database (<code>tzdata</code>).
+</li><li>
+Astronomy: sunrise and sunset, and lunar phase, computed with the <code>astral</code> / <code>ephem</code> Python packages.
+</li><li>
+NOAA / NCEI: These are US-government works.
+<ul><li>
+Global Historical Climatology Network-Daily (Menne, M. J., I. Durre, R. S. Vose, B. E. Gleason and T. G. Houston, 2012, "An overview of the Global Historical Climatology Network-Daily database", <em>Journal of Atmospheric and Oceanic Technology</em> 29, 897-910)
+</li><li>
+Integrated Surface Database (ISD)
+</li><li>
+Historical Observing Metadata Repository (HOMR)
+</li></ul>
+</li><li>
+USGS ANSS Comprehensive Earthquake Catalog (ComCat), a US-government work. The reconciliation log also uses EMSC FDSN.
+</li><li>
+Board of Governors of the Federal Reserve System: H.15 Selected Interest Rates (DGS10, DGS2, DTB3), and the G.17 release dates.
+</li><li>
+Macro release dates:
+<ul><li>
+ALFRED, Federal Reserve Bank of St. Louis (release dates only)
+</li><li>
+the BLS news release archive
+</li><li>
+BLS, Release dates for the Producer Price Index, 1971-2025, and Historical release dates for selected BLS news releases (PPI release dates of 1971-1978)
+</li><li>
+FRASER (Federal Reserve Bank of St. Louis), for the BLS Employment Situation
+</li><li>
+Census Bureau MARTS release dates
+</li></ul>
+</li></ul>
+<h3>Other open columns (CC BY 4.0 unless listed under the Wikipedia section)</h3>
+<ul><li>
+<strong>Calendar block.</strong> Deterministic rules on the trading-day spine and closures. <code>is_mercury_retrograde</code> comes from a hand-listed table of Mercury-retrograde windows.
+</li><li>
+<strong>FOMC block.</strong>
+<ul><li>
+Board of Governors FOMC pages (federalreserve.gov <code>fomchistoricalYYYY.htm</code>, <code>fomccalendars.htm</code>), and the 1972 Memoranda of Discussion and Minutes of Actions (decision days of February and April 1972)
+</li><li>
+the NY Fed federal funds target history
+</li><li>
+FRED DFEDTAR and DFEDTARU (Board of Governors)
+</li><li>
+the authors' EventCal release v9_a18
+</li></ul>
+</li><li>
+<strong>Macro block.</strong> Only release <strong>dates</strong> are used.
+<ul><li>
+ALFRED release and vintage dates
+</li><li>
+the federalreserve.gov Beige Book archive
+</li><li>
+U.S. Treasury FiscalData auction records
+</li><li>
+the EventCal release
+</li><li>
+rules and hand lists: ISM, Conference Board, existing home sales, and the Kansas City Fed Jackson Hole symposium
+</li></ul>
+</li><li>
+<strong>Events block, open columns.</strong>
+<ul><li>
+Hand-listed windows and dates compiled by the authors (war and crisis periods, major floods, pandemic windows) and the presidential-cycle rule.
+</li><li>
+EventCal release rows for US federal election days, the session on which the election result is known, Congressional Research Service federal funding-gap dates (government shutdowns, 1978-2024), and OpenFEMA major-disaster declarations (a US-government work).
+</li><li>
+FRED USREC (NBER recession months, <code>nber_recession_month</code>), from the NBER business-cycle reference dates.
+</li></ul>
+</li><li>
+<strong>Market block, open columns.</strong> <code>fed_funds_eff</code> and <code>fed_funds_eff_prev</code> come from FRED DFF, the effective federal funds rate published by the Board of Governors (a US-government work).
+</li><li>
+<strong>Wikimedia attention block (<code>wpv_*</code>).</strong> Wikimedia REST API pageviews and legacy pagecounts. The Wikimedia Foundation releases this data under CC0; the derived <code>wpv_*</code> columns are released here under CC BY 4.0.
+</li><li>
+<strong>ECB block (<code>ecb_*</code>).</strong> Monetary-policy decision lists, press releases, press-conference lists and the key ECB interest rates table from ecb.europa.eu. Source: ECB (reuse permitted with source acknowledgement). The decision days were cross-checked against the Euro Area Monetary Policy Event-Study Database (Altavilla, C., L. Brugnolini, R. S. Gurkaynak, R. Motto and G. Ragusa, 2019, "Measuring euro area monetary policy", <em>Journal of Monetary Economics</em> 108, 162-179).
+</li><li>
+<strong>Fed and Treasury communication block (<code>hh_testimony_*</code>, <code>treasury_*</code>).</strong> Board of Governors testimony lists and pages (federalreserve.gov); FRASER, Federal Reserve Bank of St. Louis (Chair statements and Monetary Policy Oversight hearing records), under FRASER's terms of use; U.S. Treasury Quarterly Refunding archives (home.treasury.gov). US-government works.
+</li><li>
+<strong>FOMC cycle block (<code>fomc_cmvj_*</code>, <code>fomc_blackout*</code>).</strong> The FOMC meeting list of the FOMC block; the FOMC Policy on External Communications of Committee Participants (federalreserve.gov); the cycle definition of Cieslak, A., A. Morse and A. Vissing-Jorgensen, 2019, "Stock returns over the FOMC cycle", <em>Journal of Finance</em> 74(5), 2201-2248.
+</li><li>
+<strong>Index rebalancing block.</strong> FTSE Russell reconstitution notices and methodology documents; S&amp;P Dow Jones Indices methodology (quarterly rebalancing rule); MSCI index-review press releases; Madhavan, A., 2003, "The Russell reconstitution effect", <em>Financial Analysts Journal</em> 59(4), 51-64, for the pre-2004 Russell dates. Only dates are used; no index data are included.
+</li><li>
+<strong>Market-structure block.</strong> Presidential Task Force on Market Mechanisms (1988, "Brady Report"); CFTC-SEC (2010), "Findings regarding the market events of May 6, 2010"; SEC Office of Analytics and Research (2015), "Equity Market Volatility on August 24, 2015"; Chicago Fed Letter 131 (1998) for the circuit-breaker rules. English Wikipedia articles were used to cross-check the event dates, and <code>mwcb_regime</code> takes its 2013 regime date from Wikipedia 'Trading curb' (see the Wikipedia section).
+</li><li>
+<strong>Mood placebos block.</strong>
+<ul><li>
+Geomagnetic Kp and ap indices: GFZ German Research Centre for Geosciences, Potsdam (CC BY 4.0). Matzka, J., C. Stolle, Y. Yamazaki, O. Bronkalla and A. Morschhauser, 2021, "The geomagnetic Kp index and derived indices of geomagnetic activity", <em>Space Weather</em> 19, e2020SW002641. Cross-checks: NOAA Space Weather Prediction Center daily geomagnetic data and the NOAA NGDC Kp archive (US-government works).
+</li><li>
+Air quality: US EPA AirData daily AQI by CBSA and county (a US-government work).
+</li></ul>
+</li><li>
+<strong>Payment days block.</strong> Social Security Administration: SSA Handbook section 121 and the SSA Office of the Chief Actuary cyclical payment data (US-government works); federal holidays per 5 U.S.C. 6103.
+</li><li>
+<strong>Religious holidays block.</strong> Dates computed with the open-source Python libraries <code>convertdate</code>, <code>pyluach</code>, <code>hijridate</code> (Umm al-Qura calendar), <code>lunardate</code> and <code>lunarcalendar</code>.
+</li><li>
+<strong>Earnings-season proxy and the other calendar-window flags</strong> are rules stated in each column's note.
+</li></ul>
+<h3>Wikipedia-derived columns (CC BY-SA 4.0)</h3>
+<p>The 47 CC BY-SA columns (the <code>wiki_sports</code>, <code>wiki_political</code>, <code>wiki_disasters</code> and <code>sports_outcomes</code> blocks, <code>pol_government_shutdown</code>, <code>pol_government_shutdown_src</code> and <code>mwcb_regime</code>; see <code>license</code> in <code>open/columns.csv</code>) contain information derived from English Wikipedia articles:</p>
+<blockquote><p>Source: Wikipedia, The Free Encyclopedia. Authors: Wikipedia contributors (see each article's history page). Licence: Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0), https://creativecommons.org/licenses/by-sa/4.0/. Changes made: event dates and outcomes were extracted from article infoboxes, tables and text through the MediaWiki Action API (fetched 2026-09-29 and 2026-09-30), then mapped to NYSE trading days as described in each column's note.</p></blockquote>
+<p><code>open/supporting/wikipedia_sources.csv</code> lists all 408 articles used. For each it gives the URL and history URL, plus the revision IDs where they were recorded. The per-event records are in <code>open/supporting/wiki_*_events.csv</code>, <code>open/supporting/sports_outcomes_events.csv</code> and <code>open/supporting/release_fixes_events.csv</code>; <code>market_structure_events.csv</code> and <code>mwcb_regimes.csv</code> quote Wikipedia cross-check strings and are CC BY-SA 4.0 as well. If you redistribute these columns or adaptations of them, you must keep this attribution and license the result under CC BY-SA 4.0.</p>
+<p>The Super Bowl Indicator column <code>sport_sb_indicator_prev</code> follows Krueger, T. M. and W. F. Kennedy, 1990, "An examination of the Super Bowl stock market predictor", <em>Journal of Finance</em> 45(2), 691-697.</p>
+<h2>Closed tier (not redistributed; rebuilt by the user)</h2>
+<div class="table-wrap"><table><thead><tr><th>source</th><th>cite / terms</th></tr></thead><tbody><tr><td>CRSP daily stock index file (<code>crsp.dsi</code>) and daily/monthly stock files</td><td>Center for Research in Security Prices (CRSP), The University of Chicago Booth School of Business, accessed through Wharton Research Data Services (WRDS). Subscription required</td></tr><tr><td>Compustat quarterly fundamentals (<code>comp.fundq</code>) and the CRSP/Compustat Merged link table</td><td>S&amp;P Global Market Intelligence, via WRDS. Subscription required</td></tr><tr><td>I/B/E/S actuals (<code>ibes.actu_epsus</code>) and the WRDS I/B/E/S-CRSP link</td><td>LSEG (Refinitiv) I/B/E/S, via WRDS. Subscription required</td></tr><tr><td>Expected announcement dates (<code>eax_*</code>)</td><td>Frazzini, A. and O. A. Lamont, 2007, "The earnings announcement premium and trading volume", NBER Working Paper 13090</td></tr><tr><td>Kenneth R. French Data Library</td><td>https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html. Fama, E. F. and K. R. French, 1993, "Common risk factors in the returns on stocks and bonds", <em>Journal of Financial Economics</em> 33, 3-56. Fama, E. F. and K. R. French, 2015, "A five-factor asset pricing model", <em>Journal of Financial Economics</em> 116, 1-22</td></tr><tr><td>VIX (FRED VIXCLS)</td><td>Chicago Board Options Exchange (Cboe), via FRED, Federal Reserve Bank of St. Louis. Copyrighted by Cboe</td></tr><tr><td>Moody's Baa/Aaa minus 10-year Treasury (FRED BAA10Y, AAA10Y; DBAA, DAAA)</td><td>Moody's, via FRED. Copyrighted by Moody's</td></tr><tr><td>S&amp;P 500 index level (FRED SP500)</td><td>S&amp;P Dow Jones Indices LLC, via FRED. Copyrighted; FRED keeps only about ten years</td></tr><tr><td>TED spread (FRED TEDRATE)</td><td>ICE Benchmark Administration (LIBOR), via FRED. Discontinued 2022-01-21</td></tr><tr><td>Economic Policy Uncertainty (FRED USEPUINDXD, USEPUINDXM)</td><td>Baker, S. R., N. Bloom and S. J. Davis, 2016, "Measuring Economic Policy Uncertainty", <em>Quarterly Journal of Economics</em> 131(4), 1593-1636. https://www.policyuncertainty.com</td></tr><tr><td>Geopolitical Risk (GPRD, GPR, GPRH)</td><td>Caldara, D. and M. Iacoviello, 2022, "Measuring Geopolitical Risk", <em>American Economic Review</em> 112(4), 1194-1225. https://www.matteoiacoviello.com/gpr.htm</td></tr></tbody></table></div>
+<p>FRED: Federal Reserve Bank of St. Louis, Federal Reserve Economic Data, https://fred.stlouisfed.org. FRED's terms say that series owned by third parties may be subject to copyright. That is why the series above are closed.</p>
+<h2>Related</h2>
+<p>The two-tier layout (open data plus rebuild code for licensed inputs) follows Chen, A. Y. and T. Zimmermann, 2022, "Open Source Cross-Sectional Asset Pricing", <em>Critical Finance Review</em> 11(2), 207-264.</p>
+</div>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>Data and documentation for <em>The Cross-Section of Trading Days</em>, by Guillaume Coqueret and Alejandro Lopez-Lira.
+    Open data under CC&nbsp;BY&nbsp;4.0 or CC&nbsp;BY-SA&nbsp;4.0, column by column; code under the MIT license.</p>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Trading Days Data</title>
+<meta name="description" content="Open dataset of The Cross-Section of Trading Days: characteristics of every NYSE trading day since 1960.">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap header-row">
+    <a class="brand" href="index.html">Trading Days Data</a>
+    <nav class="nav" aria-label="Main"><a href="index.html" aria-current="page">Home</a><a href="data.html">Data</a><a href="codebook.html">Codebook</a><a href="documentation.html">Documentation</a><a href="sources.html">Sources</a><a href="rebuild.html">Licensed columns</a></nav>
+  </div>
+</header>
+<main class="wrap">
+
+<section class="hero">
+  <h1>Characteristics of every NYSE trading day since 1960</h1>
+  <p class="lede">An open dataset of 408 day characteristics for each of the 16,610 NYSE sessions from
+  1960 to 2025: the calendar, scheduled macroeconomic and monetary-policy announcements, political, sports and
+  natural events, weather and astronomy, attention, and market conditions. Every event is placed on the first
+  session in which the market could react to it, and every column records where its dates come from.</p>
+  <div class="actions">
+    <a class="btn primary" href="data.html">Download the data</a>
+    <a class="btn" href="codebook.html">Browse the codebook</a>
+    <span class="btn disabled" aria-disabled="true">Read the paper</span>
+  </div>
+</section>
+
+<section class="stats" aria-label="The dataset in numbers">
+  <div class="stat"><span class="num">408</span><span class="label">day characteristics</span></div>
+  <div class="stat"><span class="num">16,610</span><span class="label">NYSE sessions, 1960–2025</span></div>
+  <div class="stat"><span class="num">356</span><span class="label">open columns, released as data</span></div>
+  <div class="stat"><span class="num">792</span><span class="label">months in the monthly version</span></div>
+</section>
+
+<section>
+  <h2>What the data show</h2>
+  <p>The paper that comes with the dataset, <em>The Cross-Section of Trading Days</em>, uses it to study how average
+  returns differ across types of days.</p>
+  <ul class="findings">
+    <li>Few types of days earn returns that differ significantly and persistently from those of other days. Apart
+    from calendar effects, no characteristic that is significant in 1960–1969 remains significant in later
+    decades.</li>
+    <li>Strategies that trade on day characteristics earned high risk-adjusted returns until the early 1990s, and
+    much less since.</li>
+    <li>Since 1994, the FOMC decision day is the only announcement day with a significant premium, and this
+    premium has been smaller since 2012.</li>
+    <li>Placing an event on the wrong session can create a day effect that does not exist or erase one that does.
+    The paper derives a formula for the size of this error.</li>
+  </ul>
+</section>
+
+<section>
+  <h2>What is in the dataset</h2>
+  <p>The 356 open columns are released as data, under CC&nbsp;BY&nbsp;4.0 or, for the columns derived from
+  Wikipedia, CC&nbsp;BY-SA&nbsp;4.0. The 52 columns built from licensed sources (CRSP, Compustat, I/B/E/S,
+  and a few third-party series) are not redistributed: <a href="rebuild.html">scripts rebuild them</a> from your
+  own access and check the result against our checksums. For each column, the <a href="codebook.html">codebook</a>
+  gives its source, the first date with data, a quality grade, whether its value is known before the open, and its
+  license. A <a href="data.html#monthly">monthly version</a> aggregates the daily data into 792 months.</p>
+</section>
+
+<section class="two-col">
+  <div>
+    <h2>Cite</h2>
+    <p>Please cite the paper, and the version of the data that you use.</p>
+    <pre class="cite"><code>@unpublished{coqueret2026tradingdays,
+  author = {Coqueret, Guillaume and Lopez-Lira, Alejandro},
+  title  = {The Cross-Section of Trading Days},
+  year   = {2026},
+  note   = {Working paper}
+}</code></pre>
+    <pre class="cite"><code>@misc{coqueret2026tradingdaysdata,
+  author    = {Coqueret, Guillaume and Lopez-Lira, Alejandro},
+  title     = {Trading Days Data, version 1.0.0},
+  year      = {2026},
+  howpublished = {\url{https://tradingdaysdata.com}}
+}</code></pre>
+  </div>
+  <div>
+    <h2>News</h2>
+    <ul class="news"><li><span class="date">forthcoming</span> Version 1.0.0: the release that matches the paper, one row per NYSE session from 1960-01-04 to 2025-12-31.</li></ul>
+    <h2>Updates</h2>
+    <p>The data are updated once a year, in the first quarter, when the year-end data are available. Each update is
+    a new version with its own DOI; earlier versions stay available unchanged.</p>
+  </div>
+</section>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>Data and documentation for <em>The Cross-Section of Trading Days</em>, by Guillaume Coqueret and Alejandro Lopez-Lira.
+    Open data under CC&nbsp;BY&nbsp;4.0 or CC&nbsp;BY-SA&nbsp;4.0, column by column; code under the MIT license.</p>
+  </div>
+</footer>
+
+</body>
+</html>
