@@ -298,6 +298,8 @@ def page_data(cfg, daily, monthly, man) -> str:
     status = ("" if base else
               '<p class="note">The files are published with the release. Until then, the links below are inactive.</p>')
     d, m = (man["daily"], man["monthly"]) if man else ({}, {})
+    hf = (f' The same files are mirrored on <a href="{E(cfg["huggingface_url"])}">Hugging Face</a>, where they '
+          f'load directly with the <code>datasets</code> library.' if cfg.get("huggingface_url") else "")
     return f"""
 <h1>Data</h1>
 <section>
@@ -310,7 +312,7 @@ def page_data(cfg, daily, monthly, man) -> str:
     <dt>Released</dt><dd>{E(rel['date'] or 'forthcoming')}</dd>
   </dl>
   <p>This version matches the paper. The CSV files are the reference; the parquet files hold the same data with
-  numeric and date types.</p>
+  numeric and date types.{hf}</p>
   {status}
   <div class="table-wrap"><table class="files">
     <thead><tr><th>File</th><th>Contents</th><th class="num">Size</th></tr></thead>

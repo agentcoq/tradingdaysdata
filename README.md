@@ -28,7 +28,8 @@ NOTICE.md                         sources and the attribution each one asks for
 site/, docs/                      the website and the scripts that build it and the release files
 ```
 
-Each release is also published as a GitHub release and on Zenodo, with a DOI, as CSV and parquet files.
+Each release is also published as a GitHub release and on Zenodo, with a DOI, as CSV and parquet files, and
+mirrored on Hugging Face.
 
 ## Using the data
 
@@ -73,6 +74,8 @@ new version with its own DOI; earlier versions are never overwritten.
 python3 site/sync_public.py --data ../tradingdays-data   # copy the public files from the authors' data repository, and check them
 python3 site/make_release.py                             # release/v<version>/: CSV, parquet, codebooks, SHA256SUMS (needs pandas, pyarrow)
 python3 site/build_site.py                               # regenerate docs/ (standard library only)
+python3 site/make_huggingface.py                         # stage the Hugging Face mirror in release/huggingface/
+HF_TOKEN=... python3 site/make_huggingface.py --push --repo OWNER/NAME   # upload it and tag v<version>
 ```
 
 `sync_public.py` copies only the files on its public list and stops if a licensed column, a data file under
