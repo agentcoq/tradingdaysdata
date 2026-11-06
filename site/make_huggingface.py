@@ -155,7 +155,7 @@ def stage() -> Path:
     return STAGE
 
 
-def push(repo: str, version: str):
+def push(repo: str, version: str, retag: bool = False):
     from huggingface_hub import HfApi, get_token    # pip install huggingface_hub
     token = os.environ.get("HF_TOKEN") or get_token()    # HF_TOKEN, else the login saved by `hf auth login`
     text = (STAGE / "README.md").read_text(encoding="utf-8").replace("OWNER/NAME", repo)
@@ -166,8 +166,11 @@ def push(repo: str, version: str):
                              commit_message=f"Trading Days Data, version {version}",
                              ignore_patterns=[".DS_Store", "**/.DS_Store"])
     tags = {t.name for t in api.list_repo_refs(repo, repo_type="dataset").tags}
+    if f"v{version}" in tags and retag:
+        api.delete_tag(repo, repo_type="dataset", tag=f"v{version}")      # only before the version is citable
+        tags.discard(f"v{version}")
     if f"v{version}" in tags:
-        print(f"tag v{version} already exists: files updated, tag left unchanged")
+        print(f"tag v{version} already exists: files updated, tag left unchanged (use --retag to move it)")
     else:
         api.create_tag(repo, repo_type="dataset", tag=f"v{version}", revision=info.oid,
                        tag_message=f"version {version}")
@@ -178,6 +181,8 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--push", action="store_true")
     ap.add_argument("--repo", help="Hugging Face dataset repository, OWNER/NAME")
+    ap.add_argument("--retag", action="store_true",
+                    help="move an existing v<version> tag to this upload (only before the version has a DOI)")
     a = ap.parse_args()
     if a.push and not a.repo:
         ap.error("--push needs --repo OWNER/NAME")
@@ -188,7 +193,7 @@ def main():
     stage()
     if a.push:
         version = json.loads((ROOT / "site/config.json").read_text())["release"]["version"]
-        push(a.repo, version)
+        push(a.repo, version, retag=a.retag)
 
 
 if __name__ == "__main__":
