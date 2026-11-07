@@ -80,7 +80,7 @@ pre code { background: none; padding: 0; font-size: inherit; }
 .stat { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 14px 16px; }
 .stat .num { display: block; font-size: 1.9rem; font-weight: 700; color: var(--accent); line-height: 1.1; }
 .stat .label { display: block; font-family: var(--sans); font-size: 0.85rem; color: var(--muted); margin-top: 4px; }
-.findings li, .news li { margin-bottom: 8px; }
+.news li { margin-bottom: 8px; }
 .news { list-style: none; padding: 0; }
 .news .date { font-family: var(--sans); font-size: 0.8rem; color: var(--muted); margin-right: 6px; text-transform: uppercase; letter-spacing: 0.03em; }
 .two-col { display: grid; grid-template-columns: 1.3fr 1fr; gap: 32px; }

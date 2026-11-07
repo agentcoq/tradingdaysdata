@@ -207,7 +207,7 @@ def page_index(cfg, daily, monthly, man) -> str:
     return f"""
 <section class="hero">
   <h1>Characteristics of every NYSE trading day since 1960</h1>
-  <p class="lede">An open dataset of {n_cols} day characteristics for each of the {n_sessions:,} NYSE sessions from
+  <p class="lede">This website hosts a dataset of {n_cols} day characteristics for each of the {n_sessions:,} NYSE sessions from
   1960 to 2025: the calendar, scheduled macroeconomic and monetary-policy announcements, political, sports and
   natural events, weather and astronomy, attention, and market conditions. Every event is placed on the first
   session in which the market could react to it, and every column records where its dates come from.</p>
@@ -223,23 +223,6 @@ def page_index(cfg, daily, monthly, man) -> str:
   <div class="stat"><span class="num">{n_sessions:,}</span><span class="label">NYSE sessions, 1960–2025</span></div>
   <div class="stat"><span class="num">{n_open}</span><span class="label">open columns, released as data</span></div>
   <div class="stat"><span class="num">{n_months}</span><span class="label">months in the monthly version</span></div>
-</section>
-
-<section>
-  <h2>What the data show</h2>
-  <p>The paper that comes with the dataset, <em>{E(cfg['paper_title'])}</em>, uses it to study how average
-  returns differ across types of days.</p>
-  <ul class="findings">
-    <li>Few types of days earn returns that differ significantly and persistently from those of other days. Apart
-    from calendar effects, no characteristic that is significant in 1960–1969 remains significant in later
-    decades.</li>
-    <li>Strategies that trade on day characteristics earned high risk-adjusted returns until the early 1990s, and
-    much less since.</li>
-    <li>Since 1994, the FOMC decision day is the only announcement day with a significant premium, and this
-    premium has been smaller since 2012.</li>
-    <li>Placing an event on the wrong session can create a day effect that does not exist or erase one that does.
-    The paper derives a formula for the size of this error.</li>
-  </ul>
 </section>
 
 <section>
