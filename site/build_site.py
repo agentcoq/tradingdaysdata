@@ -209,8 +209,11 @@ def page_index(cfg, daily, monthly, man) -> str:
   <h1>Characteristics of every NYSE trading day since 1960</h1>
   <p class="lede">This website hosts {n_open} characteristics of each of the {n_sessions:,} NYSE sessions from 1960 to
   2025, all built from publicly available sources: the calendar, scheduled macroeconomic and monetary-policy
-  announcements, political, sports and natural events, weather and astronomy, and attention. Every event is placed on the first
-  session in which the market could react to it, and every column records where its dates come from.</p>
+  announcements, political, sports and natural events, weather and astronomy, and attention. Every event is placed
+  on the first session in which the market could react to it, and every column records where its dates come from.
+  The {n_closed} other characteristics of the paper, mostly market conditions and earnings announcements, come from
+  licensed sources and cannot be redistributed; <a href="rebuild.html">our scripts rebuild them</a> from your own
+  access.</p>
   <div class="actions">
     {button("Download the data", "data.html", primary=True)}
     {button("Browse the codebook", "codebook.html")}
@@ -228,9 +231,8 @@ def page_index(cfg, daily, monthly, man) -> str:
 <section>
   <h2>What is in the dataset</h2>
   <p>The {n_open} columns are released under CC&nbsp;BY&nbsp;4.0 or, for the columns derived from Wikipedia,
-  CC&nbsp;BY-SA&nbsp;4.0. The paper also uses {n_closed} characteristics built from licensed sources (CRSP,
-  Compustat, I/B/E/S, and a few third-party series), which we cannot redistribute: <a href="rebuild.html">scripts
-  rebuild them</a> from your own access and check the result against our checksums. The
+  CC&nbsp;BY-SA&nbsp;4.0. The {n_closed} licensed characteristics come from CRSP, Compustat, I/B/E/S and a few
+  third-party series; the <a href="rebuild.html">rebuild scripts</a> check your result against our checksums. The
   <a href="codebook.html">codebook</a> lists all {n_cols} columns and gives, for each, its source, the first date with data, a quality grade, whether its value is known before the open, and its
   license. A <a href="data.html#monthly">monthly version</a> aggregates the daily data into {n_months} months.</p>
 </section>
