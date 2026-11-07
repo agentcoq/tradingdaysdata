@@ -213,7 +213,7 @@ def page_index(cfg, daily, monthly, man) -> str:
   on the first session in which the market could react to it, and every column records where its dates come from.
   The {n_closed} other characteristics of the paper, mostly market conditions and earnings announcements, come from
   licensed sources and cannot be redistributed; <a href="rebuild.html">our scripts rebuild them</a> from your own
-  access.</p>
+  access. Together, the two sets make up the {n_cols} characteristics of the paper.</p>
   <div class="actions">
     {button("Download the data", "data.html", primary=True)}
     {button("Browse the codebook", "codebook.html")}
