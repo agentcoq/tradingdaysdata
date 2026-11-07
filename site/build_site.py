@@ -211,7 +211,7 @@ def page_index(cfg, daily, monthly, man) -> str:
   2025, all built from publicly available sources: the calendar, scheduled macroeconomic and monetary-policy
   announcements, political, sports and natural events, weather and astronomy, and attention. Every event is placed
   on the first session in which the market could react to it, and every column records where its dates come from.
-  The {n_closed} other characteristics of the paper, mostly market conditions and earnings announcements, come from
+  The {n_closed} other characteristics, mostly market conditions and earnings announcements, come from
   licensed sources and cannot be redistributed; <a href="rebuild.html">our scripts rebuild them</a> from your own
   access. Together, the two sets make up the {n_cols} characteristics of the paper.</p>
   <div class="actions">
