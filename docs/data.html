@@ -18,13 +18,13 @@
 
 <h1>Data</h1>
 <section>
-  <h2>Version 1.0.0</h2>
+  <h2>Version 1.0.1</h2>
   <dl class="facts">
     <dt>Sample</dt><dd>1960-01-04 to 2025-12-31, 16,610 NYSE sessions;
       monthly: 1960-01 to 2025-12, 792 months</dd>
     <dt>Open columns</dt><dd>356 daily, 528 monthly</dd>
-    <dt>DOI</dt><dd><a href="https://doi.org/10.5281/zenodo.24020909">doi:10.5281/zenodo.24020909</a>; all versions: <a href="https://doi.org/10.5281/zenodo.24020908">doi:10.5281/zenodo.24020908</a></dd>
-    <dt>Released</dt><dd>2026-11-06</dd>
+    <dt>DOI</dt><dd><a href="https://doi.org/10.5281/zenodo.24083841">doi:10.5281/zenodo.24083841</a>; all versions: <a href="https://doi.org/10.5281/zenodo.24020908">doi:10.5281/zenodo.24020908</a></dd>
+    <dt>Released</dt><dd>2026-11-09</dd>
   </dl>
   <p>This version matches the paper. The CSV files are the reference; the parquet files hold the same data with
   numeric and date types. The same files are mirrored on <a href="https://huggingface.co/datasets/agentcoqueret/tradingdaysdata">Hugging Face</a>, where they load directly with the <code>datasets</code> library.</p>
@@ -32,16 +32,15 @@
   <div class="table-wrap"><table class="files">
     <thead><tr><th>File</th><th>Contents</th><th class="num">Size</th></tr></thead>
     <tbody>
-<tr><td><a href="https://github.com/agentcoq/tradingdaysdata/releases/download/v1.0.0/trading_days_daily_open.csv">trading_days_daily_open.csv</a></td><td>Daily panel: <code>trading_date</code> and the open columns</td><td class='num'>15.3 MB</td></tr>
-<tr><td><a href="https://github.com/agentcoq/tradingdaysdata/releases/download/v1.0.0/trading_days_daily_open.parquet">trading_days_daily_open.parquet</a></td><td>Daily panel, parquet (typed)</td><td class='num'>2.5 MB</td></tr>
-<tr><td><a href="https://github.com/agentcoq/tradingdaysdata/releases/download/v1.0.0/trading_days_monthly_open.csv">trading_days_monthly_open.csv</a></td><td>Monthly panel: <code>month</code> and the open monthly columns</td><td class='num'>1.9 MB</td></tr>
-<tr><td><a href="https://github.com/agentcoq/tradingdaysdata/releases/download/v1.0.0/trading_days_monthly_open.parquet">trading_days_monthly_open.parquet</a></td><td>Monthly panel, parquet (typed)</td><td class='num'>664 kB</td></tr>
-<tr><td><a href="https://github.com/agentcoq/tradingdaysdata/releases/download/v1.0.0/codebook_daily.csv">codebook_daily.csv</a></td><td>Daily codebook: every column, open and licensed</td><td class='num'>138 kB</td></tr>
-<tr><td><a href="https://github.com/agentcoq/tradingdaysdata/releases/download/v1.0.0/codebook_monthly.csv">codebook_monthly.csv</a></td><td>Monthly codebook: every column, with its aggregation rule</td><td class='num'>200 kB</td></tr>
+<tr><td><a href="https://github.com/agentcoq/tradingdaysdata/releases/download/v1.0.1/trading_days_daily_open.csv">trading_days_daily_open.csv</a></td><td>Daily panel: <code>trading_date</code> and the open columns</td><td class='num'>15.3 MB</td></tr>
+<tr><td><a href="https://github.com/agentcoq/tradingdaysdata/releases/download/v1.0.1/trading_days_daily_open.parquet">trading_days_daily_open.parquet</a></td><td>Daily panel, parquet (typed)</td><td class='num'>2.5 MB</td></tr>
+<tr><td><a href="https://github.com/agentcoq/tradingdaysdata/releases/download/v1.0.1/trading_days_monthly_open.csv">trading_days_monthly_open.csv</a></td><td>Monthly panel: <code>month</code> and the open monthly columns</td><td class='num'>1.9 MB</td></tr>
+<tr><td><a href="https://github.com/agentcoq/tradingdaysdata/releases/download/v1.0.1/trading_days_monthly_open.parquet">trading_days_monthly_open.parquet</a></td><td>Monthly panel, parquet (typed)</td><td class='num'>664 kB</td></tr>
+<tr><td><a href="https://github.com/agentcoq/tradingdaysdata/releases/download/v1.0.1/codebook_daily.csv">codebook_daily.csv</a></td><td>Daily codebook: every column, open and licensed</td><td class='num'>138 kB</td></tr>
+<tr><td><a href="https://github.com/agentcoq/tradingdaysdata/releases/download/v1.0.1/codebook_monthly.csv">codebook_monthly.csv</a></td><td>Monthly codebook: every column, with its aggregation rule</td><td class='num'>200 kB</td></tr>
     </tbody>
   </table></div>
-  <details><summary>SHA-256 checksums</summary><pre class="sums"><code>6dc96b377b7d3cef608f86992a06f459aa94c3a11930c27ad8945f52e878d2e2  RELEASE_NOTES.md
-b36130da3619221c64480a83395e73d204c3b5d91de26c622c00417eb5b77fb4  codebook_daily.csv
+  <details><summary>SHA-256 checksums</summary><pre class="sums"><code>99abd597f801e5613047d0bec3bbfecf1c42ec5cb518044849d9383e7f1b7874  codebook_daily.csv
 5d8af436d2d3b3f907cc0a191f239c3c231b154c35b53619aab5450975c5b210  codebook_monthly.csv
 d7a02e5921f87b9bdc5c887179513f80a2f1c3e800d5d752a1890cc4821a02d4  trading_days_daily_open.csv
 cf0b0a9b32d66fe2e35dc5d926a5384e4fc0975384c400fdb854e670b205a230  trading_days_daily_open.parquet
