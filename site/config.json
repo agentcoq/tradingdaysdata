@@ -17,14 +17,18 @@
   "repo_url": "https://github.com/agentcoq/tradingdaysdata",
   "huggingface_url": "https://huggingface.co/datasets/agentcoqueret/tradingdaysdata",
   "release": {
-    "version": "1.0.0",
-    "date": "2026-11-06",
+    "version": "1.0.1",
+    "date": "2026-11-09",
     "sample": "1960-01-04 to 2025-12-31",
-    "doi": "10.5281/zenodo.24020909",
+    "doi": "10.5281/zenodo.24020908",
     "concept_doi": "10.5281/zenodo.24020908",
-    "download_base": "https://github.com/agentcoq/tradingdaysdata/releases/download/v1.0.0"
+    "download_base": "https://github.com/agentcoq/tradingdaysdata/releases/download/v1.0.1"
   },
   "news": [
+    {
+      "date": "2026-11-09",
+      "text": "Version 1.0.1: the data are unchanged. The rebuild scripts now install correctly on a fresh machine (wrds 3.5 or later, pandas 2.2), and the codebook note of pol_election_result_known_day carries an erratum."
+    },
     {
       "date": "2026-11-06",
       "text": "Version 1.0.0, the release that matches the paper: one row per NYSE session from 1960-01-04 to 2025-12-31 (DOI 10.5281/zenodo.24020909)."

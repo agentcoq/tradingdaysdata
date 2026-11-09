@@ -9,9 +9,9 @@ authors:
   - family-names: Lopez-Lira
     given-names: Alejandro
     affiliation: University of Florida
-version: 1.0.0
-doi: 10.5281/zenodo.24020909
-date-released: 2026-11-06
+version: 1.0.1
+doi: 10.5281/zenodo.24020908
+date-released: 2026-11-09
 url: "https://www.tradingdaysdata.com"
 repository-code: "https://github.com/agentcoq/tradingdaysdata"
 license:

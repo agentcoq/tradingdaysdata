@@ -98,10 +98,14 @@ reproduce the construction exactly. Downloads of the public sources gave:
 |---|---|---|
 | `french` | byte-identical | The library serves only its current vintage. The files are rebuilt monthly from the latest CRSP, and past daily factor values are occasionally revised |
 | `epu` | byte-identical | The daily EPU index is recomputed as newspaper archives change, and FRED mirrors the latest values |
-| `gpr` | byte-identical | The GPR files are updated and occasionally revised |
+| `gpr` | byte-identical | The GPR files are updated, and the most recent months of `gpr_monthly` are revised (a download on 2026-11-09 revised six months of 2025 by at most 1.5%) |
 | `fred_thirdparty` | 9 of 10 columns byte-identical. `sp500_level_fred` has 2,326 non-missing values instead of 2,327: FRED's SP500 series keeps a rolling ten-year window, so 2016-09-29 has dropped out. Every remaining value is identical | SP500 loses a day each trading day. VIX, Moody's and TED are occasionally revised |
 | `crsp` | byte-identical from the authors' CRSP extract (`--crsp-csv`) | CRSP makes annual corrections, and legacy-to-CIZ format changes may alter the last digits |
 | `earnings` | byte-identical from the authors' cached WRDS pulls (`--offline`) | Compustat and I/B/E/S restate report dates and times, links change, and CRSP is revised |
+
+On 2026-11-09 the scripts were also run on a clean machine (fresh clone, new Python 3.12 environment from
+`requirements.txt`, fresh WRDS pulls). `crsp`, `earnings`, `french` and `epu` were byte-identical; `fred_thirdparty`
+and `gpr` differed only in `sp500_level_fred` (ten-year window) and `gpr_monthly` (revised months).
 
 When a block differs, `python3 closed/verify.py` reports, for each column, whether it is exact and what its
 coverage is (the count of non-missing values and the first and last dates) against the expected coverage.

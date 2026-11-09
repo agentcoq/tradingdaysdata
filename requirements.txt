@@ -1,9 +1,9 @@
-# tested with Python 3.12, pandas 2.x, numpy 2.x, requests 2.x
-pandas>=2.0
+# tested with Python 3.12, pandas 2.2, numpy 2.x, requests 2.x
+pandas>=2.2,<2.3      # wrds 3.5 requires pandas <2.3 and SQLAlchemy 2
 numpy>=1.24
 requests>=2.28
 # WRDS blocks only (closed/build_crsp.py without --crsp-csv, closed/build_earnings.py)
-wrds>=3.1
+wrds>=3.5        # older wrds needs SQLAlchemy 1.4, which recent pandas cannot use
 pyarrow>=14      # parquet cache of closed/build_earnings.py
 # open-block builders only (open/code/); not needed to use the data
 convertdate>=2.4
